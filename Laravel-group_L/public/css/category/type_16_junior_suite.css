@@ -1,0 +1,113 @@
+.type_16_junior_suite #junior_suite {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 46.5px;
+  padding-right: 46.5px;
+}
+.type_16_junior_suite .pic_1 {
+  background-image: url(../../images/category/bg-rooms-2.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.type_16_junior_suite .pic_2 {
+  background-image: url(../../images/category/bg-rooms.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.type_16_junior_suite .vc_row {
+  margin-bottom: 0;
+}
+.type_16_junior_suite .vc_row:not(.vc_grid):not(.vc_inner) {
+  padding-bottom: 9.8rem;
+  padding-top: 9.8rem;
+}
+.type_16_junior_suite .vc_column-inner {
+  padding-top: 0;
+}
+.type_16_junior_suite figure {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+.type_16_junior_suite .vc_single_image-img {
+  border-radius: 2px;
+  margin-bottom: 1.4rem;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  box-sizing: border-box;
+}
+.type_16_junior_suite .white-box {
+  border-radius: 2px;
+  background-color: rgba(255,255,255,0.85);
+}
+.type_16_junior_suite .content-padding {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 3.6rem;
+  padding-bottom: 3.6rem;
+}
+.type_16_junior_suite h2 {
+  line-height: 1.2;
+  margin: 2.8rem 0 1.4rem;
+  position: relative;
+  font-family: 'Domine';
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  font-size: 3rem;
+  color: #363d40;
+}
+.type_16_junior_suite h2 small {
+  color: inherit;
+  font-size: 50%;
+  font-weight: normal;
+  display: block;
+  opacity: 0.8;
+  line-height: 1.2;
+}
+.type_16_junior_suite p {
+  margin: 2.8rem 0 1.4rem;
+  font-family: 'Roboto';
+  font-weight: 300;
+  text-transform: none;
+  font-size: 1.4rem;
+  color: #667279;
+}
+.type_16_junior_suite ul {
+  margin: 2.8rem 0 1.4rem;
+}
+.type_16_junior_suite .list-pointer {
+  list-style: none;
+  padding-left: 2.2rem;
+}
+.type_16_junior_suite .list-pointer li {
+  font-family: 'Roboto';
+  font-weight: 300;
+  text-transform: none;
+  font-size: 1.4rem;
+  color: #667279;
+}
+.type_16_junior_suite a {
+  color: #363d40;
+}
+.type_16_junior_suite a:hover {
+  -webkit-transition: all 200ms ease-in;
+  color: #c0c0c0;
+  transition: all 200ms ease-in;
+  outline: none;
+  text-decoration: none;
+}
+.type_16_junior_suite .btn {
+  font-family: 'Roboto';
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.type_16_junior_suite .btn-inline {
+  padding: 0.9rem 0;
+  display: inline-block;
+  white-space: normal;
+  border: none;
+  background: transparent;
+}

@@ -1,0 +1,10 @@
+@media (min-width: 786px) {
+  type-45 col-sm-12 {
+    width: 100%;
+    float: left;
+  }
+}
+type-45 .text {
+  padding: 15px;
+  font-weight: bold;
+}

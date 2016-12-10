@@ -1,0 +1,64 @@
+.type_16_make_reservation .vc_row:not(.vc_grid):not(.vc_inner) {
+  padding-bottom: 9.8rem;
+  padding-top: 9.8rem;
+}
+.type_16_make_reservation .vc_column-inner {
+  padding-top: 0;
+}
+.type_16_make_reservation .wpb_content_element {
+  margin-bottom: 2.8rem;
+}
+.type_16_make_reservation h2 {
+  line-height: 1.2;
+  margin: 2.8rem 0 1.4rem;
+  position: relative;
+  font-family: 'Domine';
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  font-size: 3rem;
+  color: #363d40;
+}
+.type_16_make_reservation h2[style*='center'] {
+  margin-bottom: 6.2rem;
+}
+.type_16_make_reservation #line {
+  content: '';
+  display: block;
+  position: relative;
+  width: 6rem;
+  border-bottom: .3rem solid;
+  margin-top: 1.2rem;
+  margin-left: -3rem;
+  left: 50%;
+  border-bottom-color: #c0392b;
+}
+.type_16_make_reservation .table {
+  margin: 2.8rem 0 1.4rem;
+}
+.type_16_make_reservation .table td {
+  border-top-color: rgba(102,114,121,0.1);
+}
+.type_16_make_reservation .table td strong {
+  font-weight: 500;
+}
+.type_16_make_reservation .btn,
+.type_16_make_reservation input[type=submit] {
+  font-weight: 500;
+  height: auto;
+  padding: 1rem 2.8rem;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  outline: none !important;
+  font-weight: bold;
+  font-family: 'Roboto';
+  font-size: 1.4rem;
+}
+.type_16_make_reservation .btn-primary {
+  background-color: #c0392b;
+  border-color: #c0392b;
+  color: #ffffff;
+}

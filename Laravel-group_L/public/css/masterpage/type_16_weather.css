@@ -1,0 +1,44 @@
+.type_16_weather .main-wrapper {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+.type_16_weather .main-wrapper .absolute-header {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+  z-index: 1;
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.type_16_weather .main-wrapper .absolute-header .fa {
+  margin-right: .5rem;
+  font-size: larger;
+}
+.type_16_weather .main-wrapper .absolute-header span,
+.type_16_weather .main-wrapper .absolute-header em {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.type_16_weather .main-wrapper .absolute-header .simple-weather {
+  line-height: 1.6;
+  display: inline-block;
+}
+.type_16_weather .main-wrapper .absolute-header .simple-weather .simple-weather__day {
+  display: inline-block;
+  margin-right: 2em;
+}
+.type_16_weather .main-wrapper .absolute-header .simple-weather span {
+  text-transform: uppercase;
+  display: inline-block;
+  margin-left: 1.5rem;
+}
+.type_16_weather .main-wrapper .absolute-header .simple-weather span:first-of-type {
+  margin-left: 0;
+}

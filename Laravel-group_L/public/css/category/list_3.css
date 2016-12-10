@@ -1,0 +1,13 @@
+@media (min-width: 768px) {
+  type-45-1 .col-md-6 {
+    width: 50%;
+    float: left;
+  }
+}
+type-45-1 .btn.btn-inline {
+  padding: 0.9rem 0;
+  display: inline-block;
+  white-space: normal;
+  border: none;
+  background: transparent;
+}

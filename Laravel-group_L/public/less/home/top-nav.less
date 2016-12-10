@@ -1,0 +1,94 @@
+@blood
+=
+#c0392b;
+.top-nav {
+  color: @blood;
+  background-color: white;
+  width: 100%;
+  position: relative;
+  ul{
+    background-color: white;
+
+  }
+  #logo {
+    line-height: 80px;
+    float: left;
+  }
+  .top-menu {
+    line-height: 78px;
+    float: right;
+    a {
+      height: 80px;
+    }
+    & > li {
+      border-top: 3px solid white;
+    }
+    & > li:hover {
+      cursor: pointer;
+      & > a:hover {
+        color: lightgray;
+      }
+      .lv2 {
+        display: block;
+      }
+    }
+    #home-nav {
+      border-top: 3px solid;
+      font-size: 16px;
+      .icon {
+        color: @blood;
+      }
+    }
+    .sub-menu {
+      display: none;
+      position: absolute;
+      padding: 0;
+      width: 19rem;
+      border-top: 3px solid;
+      box-shadow: 1px 1px 5px lightgray;;
+      & > li:hover {
+        .lv3 {
+          display: block;
+        }
+      }
+      &.lv3 {
+        left: 100%;
+        top: -3px;
+      }
+      &.lv2{
+        &::before {
+          content: '\f0d8';
+          font-family: 'FontAwesome';
+          display: block;
+          position: absolute;
+          top: -4px;
+          left: 20px;
+          line-height: 0px;
+        }
+      }
+      li {
+        width: 100%;
+        line-height: 30px;
+        margin: 0;
+        border-top: 1px solid lightgray;
+        position: relative;
+
+        &.top {
+          border-top: none;
+        }
+        a {
+          text-transform: capitalize;
+          padding: 9px 20px;
+          font-size: 13px;
+          span {
+            float: right;
+            padding: 9px 10px;;
+          }
+        }
+      }
+      & > li:hover {
+        background-color: lightgray;
+      }
+    }
+  }
+}

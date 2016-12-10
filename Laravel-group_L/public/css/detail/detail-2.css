@@ -1,0 +1,38 @@
+.text-center {
+  text-align: center;
+}
+.detail-2 {
+  background-image: url('../../images/detail/bg-room.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  overflow: hidden;
+  background-attachment: fixed;
+  padding-bottom: 9.8rem;
+  padding-top: 9.8rem;
+  text-align: center;
+  color: #667279;
+}
+.detail-2 .white-box {
+  background: rgba(255,255,255,0.85);
+  border-radius: 2px;
+  padding: 5.6rem;
+}
+.detail-2 h3 {
+  font-family: "Domine", serif;
+  position: relative;
+  margin: 2.8rem 0 1.4rem;
+}
+.detail-2 h3 .text-center::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 6rem;
+  border-bottom: .3rem solid #BE3A31;
+  margin-top: 1.2rem;
+  margin-left: -3rem;
+  left: 50%;
+}
+.detail-2 ul.list-unstyled li {
+  margin-bottom: 1.4rem;
+  font-size: 1.4rem;
+}

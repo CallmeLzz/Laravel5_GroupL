@@ -1,0 +1,85 @@
+.top-nav {
+  color: #c0392b;
+  background-color: white;
+  width: 100%;
+  position: relative;
+}
+.top-nav ul {
+  background-color: white;
+}
+.top-nav #logo {
+  line-height: 80px;
+  float: left;
+}
+.top-nav .top-menu {
+  line-height: 78px;
+  float: right;
+}
+.top-nav .top-menu a {
+  height: 80px;
+}
+.top-nav .top-menu > li {
+  border-top: 3px solid white;
+}
+.top-nav .top-menu > li:hover {
+  cursor: pointer;
+}
+.top-nav .top-menu > li:hover > a:hover {
+  color: lightgray;
+}
+.top-nav .top-menu > li:hover .lv2 {
+  display: block;
+}
+.top-nav .top-menu #home-nav {
+  border-top: 3px solid;
+  font-size: 16px;
+}
+.top-nav .top-menu #home-nav .icon {
+  color: #c0392b;
+}
+.top-nav .top-menu .sub-menu {
+  display: none;
+  position: absolute;
+  padding: 0;
+  width: 19rem;
+  border-top: 3px solid;
+  box-shadow: 1px 1px 5px lightgray;
+}
+.top-nav .top-menu .sub-menu > li:hover .lv3 {
+  display: block;
+}
+.top-nav .top-menu .sub-menu.lv3 {
+  left: 100%;
+  top: -3px;
+}
+.top-nav .top-menu .sub-menu.lv2::before {
+  content: '\f0d8';
+  font-family: 'FontAwesome';
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: 20px;
+  line-height: 0px;
+}
+.top-nav .top-menu .sub-menu li {
+  width: 100%;
+  line-height: 30px;
+  margin: 0;
+  border-top: 1px solid lightgray;
+  position: relative;
+}
+.top-nav .top-menu .sub-menu li.top {
+  border-top: none;
+}
+.top-nav .top-menu .sub-menu li a {
+  text-transform: capitalize;
+  padding: 9px 20px;
+  font-size: 13px;
+}
+.top-nav .top-menu .sub-menu li a span {
+  float: right;
+  padding: 9px 10px;
+}
+.top-nav .top-menu .sub-menu > li:hover {
+  background-color: lightgray;
+}
