@@ -5,7 +5,7 @@
                 <div class="col-xs-12">
                     <a href="/" id="logo">
                 <span>
-                <img src="images/logo/leisure.png" class="logo-img">
+                <img src="../images/logo/leisure.png" class="logo-img">
                 </span>
                     </a>
                     <div>
@@ -25,7 +25,7 @@
                             @if(isset($menu))
                                 @foreach($menu as $value)
                             <li>
-                                <a href="category">{{ $value['menu_title'] }}</a>
+                                <a href="{{ URL::route('category') }}?type={{ $value['menu_title'] }}">{{ $value['menu_title'] }}</a>
                                 <!--
                                 <ul class="sub-menu lv2">
                                     <li class="top menu">

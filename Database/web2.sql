@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2016 at 01:50 PM
+-- Generation Time: Dec 10, 2016 at 06:35 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -43,7 +43,9 @@ CREATE TABLE `banners` (
 INSERT INTO `banners` (`banner_id`, `banner_title`, `banner_img`, `banner_type`) VALUES
 (1, 'Sky1', 'images/banners/56982.jpg', 'home'),
 (2, 'Sky2', 'images/banners/13302.jpg', 'home'),
-(3, 'Sky3', 'images/banners/20448.jpg', 'home');
+(3, 'Sky3', 'images/banners/20448.jpg', 'home'),
+(4, 'Rooms Listing', 'images/banners/90245.jpg', 'category'),
+(5, 'Pro Golf Club', 'images/banners/32674.jpg', 'category');
 
 -- --------------------------------------------------------
 
@@ -65,10 +67,16 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_title`, `category_description`, `category_type`, `category_image`) VALUES
-('C01', 'Round Cove Suite', 'Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat', 'Rooms Listing', 'images/categories/47018.jpg'),
-('C02', 'Signature Water View', 'Phasellus laoreet lorem vel dolor tempus vehicula. Integer legentibus erat a ante historiarum dapibus. Plura mihi bona sunt, inclinet, amari petere vellent. Quae vero auctorem tractata ab fiducia dicuntur.', 'Rooms Listing', 'images/categories/73811.jpg'),
-('C03', 'Signature Water Side', 'Phasellus laoreet lorem vel dolor tempus vehicula. Integer legentibus erat a ante historiarum dapibus. Plura mihi bona sunt, inclinet, amari petere vellent. Quae vero auctorem tractata ab fiducia dicuntur.', 'Rooms Listing', 'images/categories/42868.jpg'),
-('C04', 'Signature Junior Suite', 'Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat', 'Rooms Listing', 'images/categories/35308.jpg');
+('C02', 'Round Cove Suite', 'Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat', 'Rooms Listing', 'images/categories/47018.jpg'),
+('C03', 'Signature Water View', 'Phasellus laoreet lorem vel dolor tempus vehicula. Integer legentibus erat a ante historiarum dapibus. Plura mihi bona sunt, inclinet, amari petere vellent. Quae vero auctorem tractata ab fiducia dicuntur.', 'Rooms Listing', 'images/categories/73811.jpg'),
+('C04', 'Signature Water Side', 'Phasellus laoreet lorem vel dolor tempus vehicula. Integer legentibus erat a ante historiarum dapibus. Plura mihi bona sunt, inclinet, amari petere vellent. Quae vero auctorem tractata ab fiducia dicuntur.', 'Rooms Listing', 'images/categories/42868.jpg'),
+('C05', 'Signature Junior Suite', 'Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat', 'Rooms Listing', 'images/categories/35308.jpg'),
+('C01', 'Rooms Listing', 'Salutantibus vitae elit libero, a pharetra augue. At nos hinc posthac, sitientis piros Afros. Quisque ut dolor gravida, placerat libero vel, euismod. Ut enim ad minim veniam, quis nostrud exercitation. Unam incolunt Belgae, aliam Aquitani, tertiam. Unam incolunt Belgae, aliam Aquitani, tertiam. Tityre, tu patulae recubans sub tegmine fagi dolor. Curabitur est gravida.', 'Rooms Listing', 'images/categories/16218.jpg'),
+('C06', 'Tennis Courts', 'Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Prima luce, cum quibus mons aliud consensu ab eo. Quam temere in vitiis, legem sancimus haerentia. Nihil hic munitissimus habendi senatus locus, nihil horum? Vivamus sagittis lacus vel augue laoreet rutrum faucibus.', 'Pro Golf Club', 'images/categories/62849.jpg'),
+('C07', 'Dream Wedding', 'Phasellus laoreet lorem vel dolor tempus vehicula. A communi observantia non est recedendum. Ut enim ad minim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident.', 'Pro Golf Club', 'images/categories/38641.jpg'),
+('C08', 'Events Team', 'Phasellus laoreet lorem vel dolor tempus vehicula. A communi observantia non est recedendum. Ut enim ad minim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident.', 'Pro Golf Club', 'images/categories/20217.jpg'),
+('C09', 'Meeting', 'Phasellus laoreet lorem vel dolor tempus vehicula. A communi observantia non est recedendum. Ut enim ad minim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident.', 'Pro Golf Club', 'images/categories/30257.jpg'),
+('C10', 'Dream', 'Phasellus laoreet lorem vel dolor tempus vehicula. A communi observantia non est recedendum. Ut enim ad minim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident.', 'Pro Golf Club', 'images/categories/71858.jpg');
 
 -- --------------------------------------------------------
 

@@ -1,6 +1,8 @@
 <div class="type-45">
     <div id="page-heading">
-        <div style="background: url(images/category/bg-header-6.jpg);
+    @if(isset($banner))
+        @foreach($banner as $value)
+        <div style="background: url(../{{ $value['banner_img'] }});
             background-size: cover; 
             background-position: center top;
             width:100%; 
@@ -13,7 +15,7 @@
                             margin-top: 105px;
                             padding: 0px;
                             color: white;
-                            ">Rooms Listing</h1>
+                            ">{{ $value['banner_title'] }}</h1>
                         <p style="color: rgba(97, 104, 115, 0.63);
                            font-size: 20px;
                            margin-top: -2px;
@@ -22,5 +24,7 @@
                 </div>
             </div>
         </div> 
+        @endforeach
+    @endif
     </div>
 </div>
