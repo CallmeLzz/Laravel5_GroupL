@@ -35,6 +35,21 @@
                         <td><input type="file" name="fileToUpload"></td>
                     </tr>
                     <tr>
+                        <th>Type</th>
+                        <td>
+                            <select name="type">
+                                <option value="{{ $value['detail_type'] }}">{{ $value['detail_type']}}</option>
+                            @if(isset($menu))
+                                @foreach($menu as $temp)
+                                    <?php if($temp['menu_title'] != $value['detail_type']): ?>
+                                        <option value="{{ $temp['menu_title'] }}">{{ $temp['menu_title']}}</option>
+                                    <?php endif ?>
+                                @endforeach
+                            @endif
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>Operations</th>
                         <td><input type="submit" value="Update"></td>
                     </tr>

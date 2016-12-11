@@ -9,6 +9,7 @@
                 <th>Brief Desciption</th>
                 <th>Full Desciption</th>
                 <th>Images</th>
+                <th>Type</th>
                 <th>Operations</th>
             </tr>
         @if(isset($detail))
@@ -19,6 +20,7 @@
                 <td>{{ substr($value['detail_brief_description'], 0, 80) }}...</td>
                 <td>{{ substr($value['detail_full_description'], 0, 80) }}...</td>
                 <td><img class="img_zoom" src="../{{ $value['detail_image'] }}"></td>
+                <td>{{ $value['detail_type'] }}</td>
                 <td>
                     <a href="{{ route('editDetailView') }}?id={{ $value['detail_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
                     <button class="btn btn-danger pull left submitDelete" source="{{ route('deleteDetail') }}?id={{ $value['detail_id'] }}">Delete</button>

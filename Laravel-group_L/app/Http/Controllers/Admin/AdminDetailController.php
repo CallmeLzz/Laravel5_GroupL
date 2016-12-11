@@ -6,10 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Models\Back\BackDetails;
+use App\Models\Back\BackMenus;
 
 class AdminDetailController extends Controller
 {
     //
+    public function __construct()
+    {
+        
+    }
+
     public function index(){
     	$detail = new BackDetails();
     	$result_detail = $detail->getData();
@@ -18,18 +24,22 @@ class AdminDetailController extends Controller
     }
     /*=============================== ADD ===============================*/
     public function addDetailView(){
-    	return view('back_end.detail.add.index');
+        $menu = new BackMenus();
+        $result_menu = $menu->getParent();
+
+    	return view('back_end.detail.add.index')->with('menu', $result_menu);
     }
     public function addDetail(Request $request){
     	$id = $request->input('id');
     	$title = $request->input('title');
     	$b_description = $request->input('brief_description');
     	$f_description = $request->input('full_description');
+        $type = $request->input('type');
     	$detail = new BackDetails();
 
     	$img = Input::file('fileToUpload');
     	if ($img != null){
-    		$detail->addDetail($id, $title, $b_description, $f_description, $this->uploadPicture('fileToUpload', 'detail'));
+    		$detail->addDetail($id, $title, $b_description, $f_description, $this->uploadPicture('fileToUpload', 'detail'), $type);
     		return redirect()->route('adminDetail');
     	}
     	else {
@@ -43,22 +53,29 @@ class AdminDetailController extends Controller
     	$detail = new BackDetails();
     	$result_detail = $detail->getDataCond($id);
 
-		return view('back_end.detail.edit.index')->with(['detail' => $result_detail]);
+        $menu = new BackMenus();
+        $result_menu = $menu->getParent();
+
+		return view('back_end.detail.edit.index')->with([
+            'detail' => $result_detail,
+            'menu' => $result_menu
+            ]);
     }
     public function editDetail(Request $request){
 		$id = $request->input('id');
 		$title = $request->input('title');
 		$b_description = $request->input('b_description');
 		$f_description = $request->input('f_description');
+        $type = $request->input('type');
 		$detail = new BackDetails();
         
 		$img = Input::file('fileToUpload');
         if ($img != null){
         	$this->deletePicture($id);
-            $detail->updateDetail($id, $title, $b_description, $f_description, $this->uploadPicture('fileToUpload', 'detail'));
+            $detail->updateDetail($id, $title, $b_description, $f_description, $this->uploadPicture('fileToUpload', 'detail'), $type);
         }
         else{
-            $detail->updateDetail($id, $title, $b_description, $f_description, null);
+            $detail->updateDetail($id, $title, $b_description, $f_description, null, $type);
         }
         return redirect()->route('adminDetail');
     }

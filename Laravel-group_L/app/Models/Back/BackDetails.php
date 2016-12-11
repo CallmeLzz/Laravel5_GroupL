@@ -15,7 +15,8 @@ class BackDetails extends Model
     	'detail_title',
         'detail_brief_description',
         'detail_full_description',
-        'detail_image'
+        'detail_image',
+        'detail_type'
 	];
 
     public function getData(){
@@ -25,7 +26,7 @@ class BackDetails extends Model
         return BackDetails::where('detail_id', $id)->get();
     }
     /*=============================== ADD ===============================*/
-        public function addDetail($id, $title, $b_description, $f_description, $img){
+        public function addDetail($id, $title, $b_description, $f_description, $img, $type){
             if ($this->checkExistsData($id) == false){
             	$detail = new BackDetails();
 
@@ -34,6 +35,7 @@ class BackDetails extends Model
             	$detail->detail_brief_description = $b_description;
             	$detail->detail_full_description = $f_description;
             	$detail->detail_image = 'images/detail/'.$img;
+                $detail->detail_type = $type;
 
             	$detail->save();
             }
@@ -48,19 +50,21 @@ class BackDetails extends Model
             else return false;
         }
     /*=============================== UPDATE ===============================*/
-        public function updateDetail($id, $title, $b_description, $f_description, $img){
+        public function updateDetail($id, $title, $b_description, $f_description, $img, $type){
             if ($img == null){
                 BackDetails::where('detail_id', $id)->update(array(
                     'detail_title' => $title,
                     'detail_brief_description' => $b_description,
-                    'detail_full_description' => $f_description));
+                    'detail_full_description' => $f_description,
+                    'detail_type' => $type));
             }
             else {
                 BackDetails::where('detail_id', $id)->update(array(
                     'detail_title' => $title,
                     'detail_brief_description' => $b_description,
                     'detail_full_description' => $f_description,
-                    'detail_image' => 'images/detail/'.$img));
+                    'detail_image' => 'images/detail/'.$img,
+                    'detail_type' => $type));
             }
         }
     /*=============================== DELETE ===============================*/

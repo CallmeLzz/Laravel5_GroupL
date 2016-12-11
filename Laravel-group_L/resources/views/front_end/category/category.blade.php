@@ -55,11 +55,11 @@
 
 @section('script')
 	<!-- ======================== ST ======================== -->
-        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="../js/script.js"></script>
     <!-- ======================== endST ======================== -->
     <!-- ======================== T ======================== -->
-        <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="js/newjavascript.js"></script>
+        <script type="text/javascript" src="../js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="../js/newjavascript.js"></script>
     <!-- ======================== T ======================== -->
 @stop
 

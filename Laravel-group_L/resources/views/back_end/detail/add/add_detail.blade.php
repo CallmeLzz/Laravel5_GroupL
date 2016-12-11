@@ -29,6 +29,18 @@
                     <td><input type="file" name="fileToUpload"></td>
                 </tr>
                 <tr>
+                    <th>Type</th>
+                    <td>
+                        <select name="type">
+                        @if(isset($menu))
+                            @foreach($menu as $value)
+                                <option value="{{ $value['menu_title']}}">{{ $value['menu_title']}}</option>
+                            @endforeach
+                        @endif
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <th>Operations</th>
                     <td><input type="submit" value="Add"></td>
                 </tr>

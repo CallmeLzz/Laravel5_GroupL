@@ -23,7 +23,10 @@
 						<div class="wpb_wrapper">
 							<h2 class="text-uppercase" style="text-align: left;">
 								<small>STARTING AT $120 / NIGHT&nbsp;</small>
-								{{ $value['category_title'] }}
+								<a style="cursor: pointer; color: black; text-decoration: none;" 
+									href="{{ URL::route('detail') }}?id={{ strtoupper($value['category_id']) }}&type={{ strtoupper($value['category_title']) }}">
+									{{ strtoupper($value['category_title']) }}
+								</a>
 							</h2>
 							<p>{{ $value['category_description'] }}</p>
 							<ul class="list-pointer">

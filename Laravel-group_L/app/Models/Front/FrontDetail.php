@@ -15,12 +15,13 @@ class FrontDetail extends Model
     	'detail_title',
     	'detail_brief_description',
     	'detail_full_description',
-    	'detail_image'
+    	'detail_image',
+        'detail_type'
 	];
 	public function getData(){
 		return self::all();
 	}
-	public function getDataCond($type){
-		return self::where('category_type', $type)->orderBy('category_id')->take(5)->get();
+	public function getDataCond($id){
+		return self::where('detail_id', $id)->get();
 	}
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Front\FrontMenus;
 use App\Models\Front\FrontBanners;
+use App\Models\Front\FrontDetail;
 
 class DetailController extends Controller
 {
@@ -13,13 +14,19 @@ class DetailController extends Controller
         $this->data = array();
     }
     public function index(Request $request){
-    	$type = $request->input('type');
+    	$id = $request->input('id');
+        $type = $request->input('type');
 
-    	$menu = new FrontMenus();
+        $menu = new FrontMenus();
+        $banner = new FrontBanners();
+        $detail = new FrontDetail();
+
         $result_menu = $menu->getData();
-
-    	$banner = new FrontBanners();
         $result_banner = $banner->getDataCond('detail', $type, '1');
+        $result_detail = $detail->getDataCond($id);
+
+        /*var_dump($result_detail->toArray());
+        die();*/
 
         $country = 'Vietnam';
         $city = 'Ho Chi Minh city';
@@ -33,7 +40,8 @@ class DetailController extends Controller
             'currentDay' => $currDay,
             'nextDay' => $nextDay,
     		'menu' => $result_menu,
-    		'banner' => $result_banner
+    		'banner' => $result_banner,
+            'detail' => $result_detail
     		]);
     }
 }

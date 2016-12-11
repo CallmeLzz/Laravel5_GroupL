@@ -10,7 +10,10 @@
 								<div class="wpb_wrapper">
 									<h2 id="view" class="text-uppercase text-center" style="text-align: center;">
 										<small>STARTING AT $120 / NIGHT</small>
+										<a style="cursor: pointer; color: black; text-decoration: none;" 
+									href="{{ URL::route('detail') }}?id={{ strtoupper($value['category_id']) }}&type={{ strtoupper($value['category_title']) }}">
 										{{ $value['category_title'] }}
+										</a>
 									</h2>
 									<p style="text-align: center;">
 										<img class="aligncenter wp-image-698 size-full" src="../{{ $value['category_image'] }}" alt="content-rooms-1">
@@ -34,7 +37,10 @@
 								<div class="wpb_wrapper">
 									<h2 id="sideview" class="text-uppercase text-center" style="text-align: center;">
 										<small>STARTING AT $120 / NIGHT</small>
+										<a style="cursor: pointer; color: black; text-decoration: none;" 
+									href="{{ URL::route('detail') }}?id={{ strtoupper($value['category_id']) }}&type={{ strtoupper($value['category_title']) }}">
 										{{ $value['category_title'] }}
+										</a>
 									</h2>
 									<p style="text-align: center;">
 										<img class="aligncenter wp-image-695 size-full" src="../{{ $value['category_image'] }}" alt="content-rooms">
