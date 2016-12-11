@@ -12,14 +12,12 @@
             <option>Type</option>
         </select><br>
             <ul class="pagination">
-            <?php $index = $cate->currentPage(); ?>
                 @if($cate->currentPage() == 1)
                     <li class="disabled"><a href="#">&laquo;</a></li>
                 @else
-                    <?php $index--; ?>
+                    <?php $index = $cate->currentPage(); $index--; ?>
                     <li><a href="{{ URL::route('adminCategory') }}?page={{ $index }}">&laquo;</a></li>
                 @endif
-
                     @while($i <= $cate->lastPage())
                         @if($cate->currentPage() == $i)
                             <li class="disabled"><a href="{{ URL::route('adminCategory') }}?page={{ $i }}">{{ $i }}</a></li>
@@ -28,13 +26,12 @@
                         @endif
                         <?php $i++; ?>
                     @endwhile
-
                 @if($cate->currentPage() == $cate->lastPage())
                     <li class="disabled"><a href="#">&raquo;</a></li>
                 @else
-                    <?php $index++; ?>
+                    <?php $index = $cate->currentPage(); $index++; ?>
                     <li><a href="{{ URL::route('adminCategory') }}?page={{ $index }}">&raquo;</a></li>
-                @endif                
+                @endif
             </ul>
         <table style="width: 100%">
             <tr>
