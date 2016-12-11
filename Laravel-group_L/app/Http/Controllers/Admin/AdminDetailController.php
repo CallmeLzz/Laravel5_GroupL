@@ -11,16 +11,18 @@ use App\Models\Back\BackMenus;
 class AdminDetailController extends Controller
 {
     //
-    public function __construct()
-    {
-        
-    }
+    public function __construct(){}
 
-    public function index(){
+    public function index(Request $request){
+        $sort = $request->input('sort');
     	$detail = new BackDetails();
-    	$result_detail = $detail->getData();
+    	$result_detail = $detail->getData($sort, 4);
 
-    	return view('back_end.detail.page.index')->with('detail', $result_detail);
+        $i = 1;
+    	return view('back_end.detail.page.index')->with([
+            'detail' => $result_detail,
+            'i' => $i
+            ]);
     }
     /*=============================== ADD ===============================*/
     public function addDetailView(){
@@ -30,7 +32,6 @@ class AdminDetailController extends Controller
     	return view('back_end.detail.add.index')->with('menu', $result_menu);
     }
     public function addDetail(Request $request){
-    	$id = $request->input('id');
     	$title = $request->input('title');
     	$b_description = $request->input('brief_description');
     	$f_description = $request->input('full_description');
@@ -39,7 +40,7 @@ class AdminDetailController extends Controller
 
     	$img = Input::file('fileToUpload');
     	if ($img != null){
-    		$detail->addDetail($id, $title, $b_description, $f_description, $this->uploadPicture('fileToUpload', 'detail'), $type);
+    		$detail->addDetail($title, $b_description, $f_description, $this->uploadPicture('fileToUpload', 'detail'), $type);
     		return redirect()->route('adminDetail');
     	}
     	else {

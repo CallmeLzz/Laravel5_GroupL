@@ -19,18 +19,28 @@ class BackDetails extends Model
         'detail_type'
 	];
 
-    public function getData(){
-        return BackDetails::all();
+    public function getData($sort, $paginate){
+        if($sort == null){
+            return BackDetails::orderBy('detail_id', 'asc')->paginate($paginate);
+        }
+        else {
+            return BackDetails::orderBy('detail_'.$sort, 'asc')->paginate($paginate);
+        }
     }
     public function getDataCond($id){
         return BackDetails::where('detail_id', $id)->get();
     }
     /*=============================== ADD ===============================*/
-        public function addDetail($id, $title, $b_description, $f_description, $img, $type){
-            if ($this->checkExistsData($id) == false){
+        public function addDetail($title, $b_description, $f_description, $img, $type){
+            if ($this->checkExistsData($title) == false){
             	$detail = new BackDetails();
 
-            	$detail->detail_id = $id;
+                if($this->autoIncreaseNumber() < 10){
+            	   $detail->detail_id = 'D0'.$this->autoIncreaseNumber();
+                }
+                else {
+                    $detail->detail_id = 'D'.$this->autoIncreaseNumber();
+                }
             	$detail->detail_title = $title;
             	$detail->detail_brief_description = $b_description;
             	$detail->detail_full_description = $f_description;
@@ -39,15 +49,28 @@ class BackDetails extends Model
 
             	$detail->save();
             }
-            elseif($this->checkExistsData($id) == true) return "Your detail is exists";
+            elseif($this->checkExistsData($title) == true) return "Your detail is exists";
         }
-        public function checkExistsData($id){
+        public function checkExistsData($title){
             $check = null;
-            foreach (BackDetails::where('detail_id', $id)->get() as $key => $value) {
-                $check = $value->detail_id;
+            foreach (BackDetails::where('detail_title', $title)->get() as $key => $value) {
+                $check = $value->detail_title;
             }
             if ($check != null) return true;
             else return false;
+        }
+        public function autoIncreaseNumber(){
+            $check = self::all();
+
+            $arr[] = null;
+            foreach ($check as $key => $value) {
+                $arr[] += substr($value->detail_id, 1, 2);
+            }
+            $i = 0;
+            while ($i != $arr){
+                if (in_array($i, $arr) == false) return $i;
+                $i++;
+            }
         }
     /*=============================== UPDATE ===============================*/
         public function updateDetail($id, $title, $b_description, $f_description, $img, $type){

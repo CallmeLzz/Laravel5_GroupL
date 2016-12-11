@@ -144,17 +144,16 @@ class AdminHomeController extends Controller
 	    /*=============================== ADD ===============================*/
 		    public function addMenu(Request $request){
 		    	$menu = new BackMenus();
-		        if ($request->input('menu_id') == null){
+		        if ($request->input('title') == null){
 		            $result_menu = $menu->getParent();
 		            return view('back_end.home.add.index')->with('menu', $result_menu);
 		        }
 		        else {
-		        	$id = $request->input('menu_id');
-		        	$menu_title = $request->input('menu_title');
-		        	$menu_level = $request->input('menu_level');
-		        	$menu_parents = $request->input('menu_parents');
+		        	$menu_title = $request->input('title');
+		        	$menu_level = $request->input('level');
+		        	$menu_parents = $request->input('parents');
 
-		            $result_menu = $menu->addMenu($id, $menu_title, $menu_level, $menu_parents);
+		            $result_menu = $menu->addMenu($menu_title, $menu_level, $menu_parents);
 		            $get_menu_id = $menu->getParent();
 
 		            if ($result_menu != null){

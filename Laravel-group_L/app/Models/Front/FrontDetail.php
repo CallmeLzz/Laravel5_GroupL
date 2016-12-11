@@ -18,10 +18,10 @@ class FrontDetail extends Model
     	'detail_image',
         'detail_type'
 	];
-	public function getData(){
-		return self::all();
+	public function getData($id){
+		return self::where('detail_id', $id)->paginate(1);
 	}
-	public function getDataCond($id){
-		return self::where('detail_id', $id)->get();
+	public function getDataCond($type){
+		return self::where('detail_type', $type)->get();
 	}
 }

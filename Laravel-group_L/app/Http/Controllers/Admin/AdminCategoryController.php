@@ -31,7 +31,6 @@ class AdminCategoryController extends Controller
         		return view('back_end.category.add.index')->with('menu', $result_menu);
             }
             public function addCategory(Request $request){
-        		$id = $request->input('id');
         		$title = $request->input('title');
         		$description = $request->input('description');
         		$type = $request->input('type');
@@ -40,7 +39,7 @@ class AdminCategoryController extends Controller
 
         		$img = Input::file('fileToUpload');
         		if ($img != null){
-        			$result_cate = $cate->addCategory($id, $title, $description, $type, $this->uploadPicture('fileToUpload', 'categories'));
+        			$result_cate = $cate->addCategory($title, $description, $type, $this->uploadPicture('fileToUpload', 'categories'));
         			return redirect()->route('adminCategory');
         		}
         		else {

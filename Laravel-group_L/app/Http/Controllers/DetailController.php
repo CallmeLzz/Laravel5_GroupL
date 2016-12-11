@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Front\FrontMenus;
-use App\Models\Front\FrontBanners;
+use App\Models\Front\FrontCategories;
 use App\Models\Front\FrontDetail;
 
 class DetailController extends Controller
@@ -18,12 +18,18 @@ class DetailController extends Controller
         $type = $request->input('type');
 
         $menu = new FrontMenus();
-        $banner = new FrontBanners();
+        $cate = new FrontCategories();
         $detail = new FrontDetail();
 
         $result_menu = $menu->getData();
-        $result_banner = $banner->getDataCond('detail', $type, '1');
-        $result_detail = $detail->getDataCond($id);
+        $result_detail = $detail->getData($id);
+
+        $getType = null;
+        foreach ($result_detail as $key => $value) {
+            $getType = $value->detail_type;
+        }
+
+        $resutl_category = $cate->getData($getType);
 
         /*var_dump($result_detail->toArray());
         die();*/
@@ -40,7 +46,7 @@ class DetailController extends Controller
             'currentDay' => $currDay,
             'nextDay' => $nextDay,
     		'menu' => $result_menu,
-    		'banner' => $result_banner,
+    		'cate' => $resutl_category,
             'detail' => $result_detail
     		]);
     }

@@ -7,18 +7,14 @@
         <table style="width: 100%">
             <form action="{{ route('addMenu') }}">
                 <tr>
-                    <th>ID</th>
-                    <td><input type="text" name="menu_id" value="" autofocus></td>
-                </tr>
-                <tr>
                     <th>Title</th>
-                    <td><input type="text" name="menu_title" value=""></td>
+                    <td><input type="text" name="title" value="" autofocus></td>
                 </tr>
 
                 <tr>
                     <th>Level</th>
                     <td>
-                        <select name="menu_level">
+                        <select name="level">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -28,7 +24,7 @@
                 <tr>
                     <th>Parents</th>
                     <td>
-                        <select name="menu_parents">
+                        <select name="parents">
                             <option value=""></option>
                         @if(isset($menu))
                             @foreach($menu as $value)

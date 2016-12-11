@@ -30,11 +30,16 @@ class BackCategories extends Model
         return BackCategories::where('category_id', $id)->get();
     }
     /*=============================== ADD ===============================*/
-        public function addCategory($id, $title, $description, $type, $img){
-            if ($this->checkExistsData($id) == false){
+        public function addCategory($title, $description, $type, $img){
+            if ($this->checkExistsData($title) == false){
                 $cate = new BackCategories();
 
-                $cate->category_id = $id;
+                if($this->autoIncreaseNumber() < 10){
+                    $cate->category_id = 'C0'.$this->autoIncreaseNumber();
+                }
+                else {
+                    $cate->category_id = 'C'.$this->autoIncreaseNumber();
+                }
                 $cate->category_title = $title;
                 $cate->category_description = $description;
                 $cate->category_type = $type;
@@ -42,15 +47,28 @@ class BackCategories extends Model
 
                 $cate->save();
             }
-            elseif($this->checkExistsData($id) == true) return "Your category is exists";
+            elseif($this->checkExistsData($title) == true) return "Your category is exists";
         }
-        public function checkExistsData($id){
+        public function checkExistsData($title){
             $check = null;
-            foreach (BackCategories::where('category_id', $id)->get() as $key => $value) {
-                $check = $value->category_id;
+            foreach (BackCategories::where('category_title', 'LIKE', $title)->get() as $key => $value) {
+                $check = $value->category_title;
             }
             if ($check != null) return true;
             else return false;
+        }
+        public function autoIncreaseNumber(){
+            $check = self::all();
+
+            $arr[] = null;
+            foreach ($check as $key => $value) {
+                $arr[] += substr($value->category_id, 1, 2);
+            }
+            $i = 0;
+            while ($i != $arr){
+                if (in_array($i, $arr) == false) return $i;
+                $i++;
+            }
         }
     /*=============================== UPDATE ===============================*/
         public function updateCategory($id, $title, $description, $type, $img){

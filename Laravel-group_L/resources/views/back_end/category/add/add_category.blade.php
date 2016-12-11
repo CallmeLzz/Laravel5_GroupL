@@ -8,12 +8,8 @@
             <form method="POST" action="{{ route('addCategory') }}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <tr>
-                    <th>ID</th>
-                    <td><input type="text" name="id" value="" autofocus></td>
-                </tr>
-                <tr>
                     <th>Title</th>
-                    <td><input type="text" name="title" value=""></td>
+                    <td><input type="text" name="title" value="" autofocus></td>
                 </tr>
                 <tr>
                     <th>Description</th>

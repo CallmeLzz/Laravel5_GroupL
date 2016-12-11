@@ -3,7 +3,6 @@
         <div class="row">
         @if(isset($cate))
             @foreach($cate as $key => $value)
-                @if($key == 0)
             <div class="col-md-6">
                 <div class="word3">
                     <p style="margin-top:30px;">Unam incolunt Belgae, aliam Aquitani, tertiam. Idque Caesaris facere 
@@ -21,7 +20,6 @@
                     </div>
                 </div>
             </div>
-                @endif
             @endforeach
         @endif
         </div>

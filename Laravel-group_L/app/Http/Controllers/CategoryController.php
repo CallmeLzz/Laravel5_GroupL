@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Front\FrontMenus;
-use App\Models\Front\FrontBanners;
+use App\Models\Front\FrontDetail;
 use App\Models\Front\FrontCategories;
 
 class CategoryController extends Controller
@@ -12,15 +12,13 @@ class CategoryController extends Controller
     //
     public function index(Request $request){
     	$type = $request->input('type');
-
     	$menu = new FrontMenus();
+        $cate = new FrontCategories();
+        $detail = new FrontDetail();
+
         $result_menu = $menu->getData();
-
-        $banner = new FrontBanners();
-        $result_banner = $banner->getDataCond('category', $type, '1');
-
-    	$cate = new FrontCategories();
     	$result_cate = $cate->getDataCond($type);
+        $result_detail = $detail->getDataCond($type);
 
     	$country = 'Vietnam';
         $city = 'Ho Chi Minh city';
@@ -37,8 +35,8 @@ class CategoryController extends Controller
             'currentDay' => $currDay,
             'nextDay' => $nextDay,
     		'cate' => $result_cate,
-    		'banner' => $result_banner,
-            'menu' => $result_menu
+            'menu' => $result_menu,
+            'detail' => $result_detail
     		]);
     }
 }

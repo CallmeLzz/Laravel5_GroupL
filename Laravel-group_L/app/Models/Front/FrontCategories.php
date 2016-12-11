@@ -17,8 +17,8 @@ class FrontCategories extends Model
     	'category_type',
         'category_image'
 	];
-	public function getData(){
-		return self::all();
+	public function getData($type){
+		return self::where('category_type', $type)->get();
 	}
 	public function getDataCond($type){
 		return self::where('category_type', $type)->orderBy('category_id')->take(5)->get();

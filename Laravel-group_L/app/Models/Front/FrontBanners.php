@@ -17,9 +17,6 @@ class FrontBanners extends Model
     	'banner_type'
 	];
 	public function getData(){
-		return self::where('banner_type', 'home')->get();
+		return self::paginate(5);
 	}
-    public function getDataCond($type, $title, $num){
-        return self::where('banner_type', $type)->where('banner_title', $title)->take($num)->get();
-    }
 }

@@ -8,10 +8,10 @@ class BackMenus extends Model
 {
     //
     protected $table = 'menus';
-    //protected $primaryKey = 'menu_id';
+    protected $primaryKey = 'menu_id';
+    public $incrementing = false; //$primaryKey will not return to int
     public $timestamps = false;
     protected $fillable = [
-    	'menu_id',
     	'menu_title',
     	'menu_level',
     	'menu_parents'
@@ -34,26 +34,44 @@ class BackMenus extends Model
 		self::where('menu_id', $id)->delete();
 	}
 	/*=============================== ADD ===============================*/
-	public function addMenu($id, $add_menu_title, $add_menu_level, $add_menu_parents){
-		if ($this->checkExistsData($id) == false){
+	public function addMenu($add_menu_title, $add_menu_level, $add_menu_parents){
+		if ($this->checkExistsData($add_menu_title) == false){
 			$menu = new self;
 
-			$menu->menu_id = $id;
+			if($this->autoIncreaseNumber() < 10){
+				$menu->menu_id = 'M0'.$this->autoIncreaseNumber();
+			}
+			else {
+				$menu->menu_id = 'M'.$this->autoIncreaseNumber();
+			}
 			$menu->menu_title = $add_menu_title;
 			$menu->menu_level = $add_menu_level;
 			$menu->menu_parents = $add_menu_parents;
 
 			$menu->save();
 		}
-		elseif($this->checkExistsData($id) == true) return "Your product id is exists";
+		elseif($this->checkExistsData($add_menu_title) == true) return "Your product id is exists";
 	}
-	public function checkExistsData($id){
+	public function checkExistsData($title){
         $check = null;
-        foreach (self::where('menu_id', $id)->get() as $key => $value) {
-            $check = $value->menu_id;
+        foreach (self::where('menu_title', 'LIKE', $title)->get() as $key => $value) {
+            $check = $value->menu_title;
         }
         if ($check != null) return true;
         else return false;
+    }
+    public function autoIncreaseNumber(){
+        $check = self::all();
+
+        $arr[] = null;
+        foreach ($check as $key => $value) {
+            $arr[] += substr($value->menu_id, 1, 2);
+        }
+        $i = 0;
+        while ($i != $arr){
+            if (in_array($i, $arr) == false) return $i;
+            $i++;
+        }
     }
     /*=============================== SEARCH ===============================*/
     public function searchMenu($type, $key){

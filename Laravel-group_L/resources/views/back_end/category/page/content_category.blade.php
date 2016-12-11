@@ -45,6 +45,7 @@
                 </tr>
             @endforeach
         </table>
+    <!-- ======================================= PAGINATION ======================================= -->
         <ul class="pagination">
             @if($cate->currentPage() == 1)
                 <li class="disabled"><a href="#">&laquo;</a></li>
@@ -67,6 +68,7 @@
                 <li><a href="{{ URL::route('adminCategory') }}?page={{ $index }}">&raquo;</a></li>
             @endif
         </ul>
+    <!-- ========================================================================================== -->
     @endif
     </div>
 </div>
