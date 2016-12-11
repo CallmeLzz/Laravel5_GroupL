@@ -12,8 +12,9 @@ class AdminCategoryController extends Controller
 {
     //
     public function indexCategory(Request $request){
+        $sort = $request->input('sort');
     	$cate = new BackCategories();
-    	$result_cate = $cate->getData();
+    	$result_cate = $cate->getData($sort);
 
         $i = 1;
     	return view('back_end.category.page.index')->with([
