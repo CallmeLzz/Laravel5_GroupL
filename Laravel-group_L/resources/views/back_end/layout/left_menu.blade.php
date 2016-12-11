@@ -32,30 +32,6 @@
             </ul>
         </li>
         <li>
-            Features - Add
-            <ul>
-                <li>
-                    Home
-                    <ul>
-                        <li><a href="{{ URL::route('addMenu') }}"> Menu </a></li>
-                        <li><a href="{{ URL::route('addBannerView') }}"> Banner </a></li>
-                    </ul>
-                </li>
-                <li>
-                    Category
-                    <ul>
-                        <li><a href="{{ URL::route('addCategoryView') }}"> Category </a></li>
-                    </ul>
-                </li>
-                <li>
-                    Detail
-                    <ul>
-                        <li><a href="{{ URL::route('addDetailView') }}"> Detail </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
             <a href="uploadFileView"> Upload file </a>
         </li>
     </ul>

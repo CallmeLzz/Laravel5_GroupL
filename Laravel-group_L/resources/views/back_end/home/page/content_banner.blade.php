@@ -1,7 +1,9 @@
 <div class="admin-content">
     <div class="main">
         <h3> Banner Page </h3>
-        <label> BANNER </label>
+        <label> FEATURE: </label>
+        <a href="{{ URL::route('addBannerView') }}" 
+            class="btn btn-info pull left" style="margin-right:3px;">Add</a>
         <table style="width: 100%">
             <tr>
                 <th>ID</th>

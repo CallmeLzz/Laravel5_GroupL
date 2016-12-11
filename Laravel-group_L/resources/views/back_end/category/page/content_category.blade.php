@@ -1,7 +1,9 @@
 <div class="admin-content">
     <div class="main">
     <h3> Category Page </h3>
-        <label> CATEGORY </label>
+        <label> FEATURE: </label>
+        <a href="{{ URL::route('addCategoryView') }}" 
+            class="btn btn-info pull left" style="margin-right:3px;">Add</a>
         <table style="width: 100%">
             <tr>
                 <th>ID</th>

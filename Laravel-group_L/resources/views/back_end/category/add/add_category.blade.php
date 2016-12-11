@@ -1,5 +1,6 @@
 <div class="admin-content">
     <div class="main">
+    <h3> Category Page - Add </h3>
     @if(isset($message))
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif

@@ -1,7 +1,9 @@
 <div class="admin-content">
     <div class="main">
     <h3> Detail Page </h3>
-        <label> DETAIL </label>
+        <label> FEATURE: </label>
+        <a href="{{ URL::route('addDetailView') }}" 
+            class="btn btn-info pull left" style="margin-right:3px;">Add</a>
         <table style="width: 100%">
             <tr>
                 <th>ID</th>

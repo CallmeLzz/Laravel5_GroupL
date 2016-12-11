@@ -1,5 +1,6 @@
 <div class="admin-content">
     <div class="main">
+    <h3> Detail Page - Update </h3>
         <table style="width: 100%">
             @if(isset($detail))
                 @foreach($detail as $value)
