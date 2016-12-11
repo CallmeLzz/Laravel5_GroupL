@@ -15,7 +15,7 @@
                             margin-top: 105px;
                             padding: 0px;
                             color: white;
-                            "><a style="text-decoration: none; color: white; cursor: pointer;" href="{{ URL::route('detail') }}?type={{ $value['banner_title'] }}">{{ $value['banner_title'] }}</a></h1>
+                            ">{{ $value['banner_title'] }}</h1>
                         <p style="color: rgba(97, 104, 115, 0.63);
                            font-size: 20px;
                            margin-top: -2px;
