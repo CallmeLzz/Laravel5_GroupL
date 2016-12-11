@@ -19,7 +19,9 @@ class BackCategories extends Model
 	];
 
     public function getData(){
-        return BackCategories::all();
+        //return BackCategories::all();
+        return BackCategories::paginate(4);
+        //var_dump(BackCategories::paginate(4));
     }
     public function getDataCond($id){
         return BackCategories::where('category_id', $id)->get();

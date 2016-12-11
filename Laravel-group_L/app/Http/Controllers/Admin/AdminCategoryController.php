@@ -11,10 +11,15 @@ use App\Models\Back\BackMenus;
 class AdminCategoryController extends Controller
 {
     //
-    public function indexCategory(){
+    public function indexCategory(Request $request){
     	$cate = new BackCategories();
     	$result_cate = $cate->getData();
-    	return view('back_end.category.page.index')->with('cate', $result_cate);
+
+        $i = 1;
+    	return view('back_end.category.page.index')->with([
+            'cate'=> $result_cate,
+            'i' => $i
+            ]);
     }
     /*============================================ CATEGORY ============================================*/
         /*=============================== ADD ===============================*/
