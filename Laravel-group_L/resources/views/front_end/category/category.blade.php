@@ -29,37 +29,37 @@
         /*======================== endT ========================*/
     ?>
 
-    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/weather-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/js_composer.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/weather-icons.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/js_composer.min.css')}}">
     <!-- ======================== Mine ======================== -->
-        <link rel="stylesheet" type="text/css" href="../css/weather-icons.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/js_composer.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/masterpage/type_16_weather.css">
-        <link rel="stylesheet" type="text/css" href="../css/category/type_16_junior_suite.css">
-        <link rel="stylesheet" type="text/css" href="../css/category/type_16_cate_0.css">
-        <link rel="stylesheet" type="text/css" href="../css/category/type_16_make_reservation.css">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/weather-icons.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/js_composer.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/masterpage/type_16_weather.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/type_16_junior_suite.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/type_16_cate_0.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/type_16_make_reservation.css')}}">
     <!-- ======================== endMine ======================== -->
     <!-- ======================== ST ======================== -->
-        <link rel="stylesheet" type="text/css" href="../css/home/top-nav.css">
-        <link rel="stylesheet" type="text/css" href="../css/home/type-34.css">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/home/top-nav.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/home/type-34.css')}}">
     <!-- ======================== endST ======================== -->
     <!-- ======================== T ======================== -->
-        <link rel="stylesheet" type="text/css" href="../css/masterpage/type_45-footer.css">
-        <link rel="stylesheet" type="text/css" href="../css/category/list_1.css">
-        <link rel="stylesheet" type="text/css" href="../css/category/list_2.css">
-        <link rel="stylesheet" type="text/css" href="../css/category/list_3.css">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/masterpage/type_45-footer.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/list_1.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/list_2.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/list_3.css')}} ">
     <!-- ======================== T ======================== -->
 @stop
 
 @section('script')
 	<!-- ======================== ST ======================== -->
-        <script type="text/javascript" src="../js/script.js"></script>
+        <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     <!-- ======================== endST ======================== -->
     <!-- ======================== T ======================== -->
-        <script type="text/javascript" src="../js/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="../js/newjavascript.js"></script>
+        <script type="text/javascript" src="{{asset('js/jquery-2.2.4.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/newjavascript.js')}}"></script>
     <!-- ======================== T ======================== -->
 @stop
 

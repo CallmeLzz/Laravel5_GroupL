@@ -1,11 +1,11 @@
 <div class="banner owl-carousel owl-theme">
     <div class="item">
-        <img src="images/photodune-1256180-luxury-hotel-resort-at-twilight-m.jpg">
+        <img src="images/banners/13302.jpg">
     </div>
     <div class="item">
-        <img src="images/iStock_000010325467_Full1.jpg">
+        <img src="images/banners/20448.jpg">
     </div>
     <div class="item">
-        <img src="images/splash.jpg">
+        <img src="images/banners/56982.jpg">
     </div>
 </div>
