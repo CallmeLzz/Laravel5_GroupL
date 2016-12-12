@@ -18,6 +18,9 @@ class BackCategories extends Model
         'category_image'
 	];
 
+    public function getAllData(){
+        return BackCategories::all();
+    }
     public function getData($sort){
         if ($sort == null){
             return BackCategories::orderBy('category_id', 'asc')->paginate(4);

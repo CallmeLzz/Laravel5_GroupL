@@ -30,6 +30,9 @@ class BackDetails extends Model
     public function getDataCond($id){
         return BackDetails::where('detail_id', $id)->get();
     }
+    public function getDynamicData($type){
+        return BackDetails::where('detail_type', $type)->get();
+    }
     /*=============================== ADD ===============================*/
         public function addDetail($title, $b_description, $f_description, $img, $type){
             if ($this->checkExistsData($title) == false){

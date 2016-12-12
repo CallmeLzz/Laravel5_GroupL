@@ -18,7 +18,7 @@
                     Category
                     <ul>
                         <li><a href="{{ URL::route('adminCategory') }}"> Category </a></li>
-                        <li><a href="#"> Price </a></li>
+                        <li><a href="{{ URL::route('adminDetailPrice') }}"> Price </a></li>
                     </ul>
                 </li>
                 <li>

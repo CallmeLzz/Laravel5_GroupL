@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Models\Back\BackDetails;
 use App\Models\Back\BackMenus;
+use App\Models\Back\BackCategories;
+use App\Models\Back\BackPrices;
 
 class AdminDetailController extends Controller
 {
@@ -21,6 +23,16 @@ class AdminDetailController extends Controller
         $i = 1;
     	return view('back_end.detail.page.index')->with([
             'detail' => $result_detail,
+            'i' => $i
+            ]);
+    }
+    public function indexPrice(){
+        $price = new BackPrices();
+        $result_price = $price->getAllData();
+
+        $i = 1;
+        return view('back_end.detail.page.index')->with([
+            'price' => $result_price,
             'i' => $i
             ]);
     }
@@ -113,5 +125,25 @@ class AdminDetailController extends Controller
         if ($checkFile){
         	unlink(public_path() . '/' . $picName);
         }
+    }
+
+    public function addPriceView(){
+        $cate = new BackCategories();
+        $result_category = $cate->getAllData();
+
+        return view('back_end.detail.add.index')->with([
+            'cate' => $result_category
+            ]);
+    }
+    public function getDetailTypeDynamicData(Request $request){
+        $type = $request->input('type');
+
+        var_dump($type);
+        die();
+
+        $detail = new BackDetails();
+        $result_detail = $detail->getDynamicData($type);
+
+        return response()->json($result_detail);
     }
 }

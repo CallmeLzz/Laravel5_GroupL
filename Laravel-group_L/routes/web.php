@@ -60,10 +60,16 @@
 					'uses' => 'Admin\AdminCategoryController@indexCategory'
 					]);
 		//================ Detail ================//
-			Route::get('/admin/detail', [
-					'as' => 'adminDetail',
-					'uses' => 'Admin\AdminDetailController@index'
-					]);
+			//============ Main ============//
+				Route::get('/admin/detail', [
+						'as' => 'adminDetail',
+						'uses' => 'Admin\AdminDetailController@index'
+						]);
+			//============ Price ============//
+				Route::get('/admin/detail-price', [
+						'as' => 'adminDetailPrice',
+						'uses' => 'Admin\AdminDetailController@indexPrice'
+						]);
 	//================================== Menu ==================================//
 		//================ Edit ================//
 			Route::get('/admin/editMenu', [
@@ -139,29 +145,38 @@
 				'uses' => 'Admin\AdminCategoryController@deleteCategory'
 				]);
 	//================================== Detail ==================================//
-		//================ Add ================//
-			Route::get('/admin/addDetailView', [
-				'as' => 'addDetailView',
-				'uses' => 'Admin\AdminDetailController@addDetailView'
-				]);
-			Route::post('/admin/addDetail', [
-				'as' => 'addDetail',
-				'uses' => 'Admin\AdminDetailController@addDetail'
-				]);
-		//================ Edit ================//
-			Route::get('/admin/editDetailView', [
-				'as' => 'editDetailView',
-				'uses' => 'Admin\AdminDetailController@editDetailView'
-				]);
-			Route::post('/admin/editDetail', [
-				'as' => 'editDetail',
-				'uses' => 'Admin\AdminDetailController@editDetail'
-				]);
-		//================ Delete ================//
-			Route::get('/admin/deleteDetail', [
-				'as' => 'deleteDetail',
-				'uses' => 'Admin\AdminDetailController@deleteDetail'
-				]);
+		//========================== Main ==========================//
+			//================ Add ================//
+				Route::get('/admin/addDetailView', [
+					'as' => 'addDetailView',
+					'uses' => 'Admin\AdminDetailController@addDetailView'
+					]);
+				Route::post('/admin/addDetail', [
+					'as' => 'addDetail',
+					'uses' => 'Admin\AdminDetailController@addDetail'
+					]);
+			//================ Edit ================//
+				Route::get('/admin/editDetailView', [
+					'as' => 'editDetailView',
+					'uses' => 'Admin\AdminDetailController@editDetailView'
+					]);
+				Route::post('/admin/editDetail', [
+					'as' => 'editDetail',
+					'uses' => 'Admin\AdminDetailController@editDetail'
+					]);
+			//================ Delete ================//
+				Route::get('/admin/deleteDetail', [
+					'as' => 'deleteDetail',
+					'uses' => 'Admin\AdminDetailController@deleteDetail'
+					]);
+		//========================== Prices ==========================//
+			//================ Add ================//
+				Route::get('/admin/addPriceView', [
+					'as' => 'addPriceView',
+					'uses' => 'Admin\AdminDetailController@addPriceView'
+					]);
+				Route::get('/getDetailTypeDynamicData', 
+					'Admin\AdminDetailController@getDetailTypeDynamicData');
 
 
 	Route::get('/admin/uploadFileView', 'Admin\AdminController@uploadFileView');

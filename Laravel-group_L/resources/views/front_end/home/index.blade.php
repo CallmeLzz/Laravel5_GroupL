@@ -35,7 +35,7 @@
 	    <link rel="stylesheet" type="text/css" href="../css/home/type_16_reservation.css">
 	    <link rel="stylesheet" type="text/css" href="../css/home/type_16_content_0.css">
 	    <link rel="stylesheet" type="text/css" href="../css/home/type_16_content_2.css">
-	    <link rel="stylesheet" type="text/css" href="../css/owlcarousel/owl.carousel.css">
+	    <!-- <link rel="stylesheet" type="text/css" href="css/owlcarousel/owl.carousel.css"> -->
 	<!-- ======================== endMine ======================== -->
 	<!-- ======================== ST ======================== -->
 	    <link rel="stylesheet" type="text/css" href="../css/home/top-nav.css">
@@ -49,7 +49,6 @@
 	<!-- ======================== T ======================== -->
 @stop
 @section('script')
-	<script src="../js/script.js"></script>
 	<!-- ======================== Mine ======================== -->
 	    <script type="text/javascript" src="../js/owl.carousel.js"></script>
 	<!-- ======================== endMine ======================== -->
@@ -65,9 +64,9 @@
 	<!-- ======================== T ======================== -->
 @stop
 @section('content')
-	<!-- @include('front_end.home.partial.banner') -->
+	<!-- @include('front_end.home.partial.banner')
 	@include('front_end.home.partial.reservation')
 	@include('front_end.home.partial.content_0')
-	@include('front_end.home.partial.content_1')
+	@include('front_end.home.partial.content_1') -->
 	<!-- @include('front_end.home.partial.content_2') -->
 @stop
