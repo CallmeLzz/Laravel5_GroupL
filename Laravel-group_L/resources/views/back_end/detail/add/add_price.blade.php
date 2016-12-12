@@ -30,7 +30,11 @@
                     <th>Detail</th>
                     <td>
                         <select name="type" id="detailcategory">
-                            <option value=""></option>
+                        @if(isset($detail))
+                            @foreach($detail as $value)
+                                <option value="{{ $value['detail_title'] }}"> {{ $value['detail_title'] }} </option>
+                            @endforeach
+                        @endif
                         </select>
                     </td>
                 </tr>

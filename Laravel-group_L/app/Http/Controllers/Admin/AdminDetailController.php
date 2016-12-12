@@ -129,17 +129,19 @@ class AdminDetailController extends Controller
 
     public function addPriceView(){
         $cate = new BackCategories();
+        $detail = new BackDetails();
         $result_category = $cate->getAllData();
+        $default = $cate->getDefaultData();
+        
+        $result_detail = $detail->getDynamicData($default);
 
         return view('back_end.detail.add.index')->with([
-            'cate' => $result_category
+            'cate' => $result_category,
+            'detail' => $result_detail
             ]);
     }
     public function getDetailTypeDynamicData(Request $request){
         $type = $request->input('type');
-
-        var_dump($type);
-        die();
 
         $detail = new BackDetails();
         $result_detail = $detail->getDynamicData($type);

@@ -3,6 +3,7 @@
 namespace App\Models\Back;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Back\BackMenus;
 
 class BackCategories extends Model
 {
@@ -31,6 +32,11 @@ class BackCategories extends Model
     }
     public function getDataCond($id){
         return BackCategories::where('category_id', $id)->get();
+    }
+    public function getDefaultData(){
+        foreach (BackCategories::take(1)->get() as $key => $value) {
+            return $value->category_type;
+        }
     }
     /*=============================== ADD ===============================*/
         public function addCategory($title, $description, $type, $img){

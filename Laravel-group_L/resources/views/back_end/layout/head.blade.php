@@ -9,11 +9,11 @@
     $less->compileFile('less/admin/admin.less', 'css/admin/admin.css');
 ?>
                                 <!--StyleSheets-->
-<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../css/admin/admin.css">
+<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/admin/admin.css')}}">
                                 <!--JavaScripts-->
-<script src="../js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="../js/dialog.js"></script>
-<script type="text/javascript" src="../js/back_end/detail.js"></script>
+<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/dialog.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/back_end/detail.js')}}"></script>
 <!-- ======================================================================= -->
