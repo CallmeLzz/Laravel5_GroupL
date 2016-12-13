@@ -5,35 +5,32 @@
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif
         <table style="width: 100%">
-            <form action="{{ route('addBanner') }}" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <tr>
-                    <th>ID</th>
-                    <td><input type="text" name="id" value="" autofocus></td>
+            {!! Form::open(['route' => 'addBanner', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                <tr> 
+                    <th> {!! Form::label('Title') !!} </th>
+                    <td> {!! Form::text('title', null, array('autofocus' => 'autofocus')) !!} </td>
                 </tr>
                 <tr>
-                    <th>Title</th>
-                    <td><input type="text" name="title" value=""></td>
+                    <th> {!! Form::label('Images') !!} </th>
+                    <td> {!! Form::file('fileToUpload') !!}</td>
                 </tr>
                 <tr>
-                    <th>Images</th>
-                    <td><input type="file" name="fileToUpload"></td>
-                </tr>
-                <tr>
-                    <th>Type</th>
-                    <td>
-                        <select name="type">
-                            <option value="home">Home</option>
-                            <option value="category">Category</option>
-                            <option value="detail">Detail</option>
-                        </select>
+                    <th> {!! Form::label('Type') !!} </th>
+                    <td> 
+                        {!! 
+                            Form::select('type', [
+                                'home' => 'Home', 
+                                'category' => 'Category', 
+                                'detail' => 'Detail'
+                                ]) 
+                        !!}
                     </td>
                 </tr>
                 <tr>
                     <th>Operations</th>
-                    <td><input type="submit" value="Add"></td>
+                    <td>{!! Form::submit('Add') !!}</td>
                 </tr>
-            </form>
+            {!! Form::close() !!}
         </table>
     </div>
 </div>

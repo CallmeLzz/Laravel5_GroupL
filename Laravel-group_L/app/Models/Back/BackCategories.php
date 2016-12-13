@@ -30,6 +30,9 @@ class BackCategories extends Model
             return BackCategories::orderBy('category_'.$sort, 'asc')->paginate(4);
         }
     }
+    public function getDataTitle(){
+        return BackCategories::pluck('category_title', 'category_title')->toArray();
+    }
     public function getDataCond($id){
         return BackCategories::where('category_id', $id)->get();
     }

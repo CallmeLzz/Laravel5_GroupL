@@ -10,15 +10,15 @@
             </tr>
             @if(isset($menu))
                 @foreach($menu as $value)
-                <form action="{{ route('editMenu') }}">
+                {!! Form::open(['route' => 'editMenu', 'method' => 'GET']) !!}
                     <tr>
-                        <td>{{ $value['menu_id'] }}</td>
-                        <td hidden="true"><input type="text" name="menu_id" value="{{ $value['menu_id'] }}" hidden=""></td>
-                        <td><input type="text" name="menu_title" value="{{ $value['menu_title'] }}" autofocus></td>
-                        <td><input type="text" name="menu_level" value="{{ $value['menu_level'] }}"></td>
-                        <td><input type="submit" value="Update"></td>
+                        <td> {{ $value->menu_id }}</td>
+                        {!! Form::text('menu_id', $value->menu_id, array('hidden')) !!}
+                        <td>{!! Form::text('menu_title', $value->menu_title) !!}</td>
+                        <td>{!! Form::text('menu_level', $value->menu_level) !!}</td>
+                        <td>{!! Form::submit('Update') !!}</td>
                     </tr>
-                </form>
+                {!! Form::close() !!}
                 @endforeach
             @endif
         </table>

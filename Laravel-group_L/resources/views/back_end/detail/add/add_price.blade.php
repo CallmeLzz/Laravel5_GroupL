@@ -5,25 +5,19 @@
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif
         <table style="width: 100%">
-            <form method="GET" action="{{ route('addDetail') }}">
+            {!! Form::open(['route' => 'addDetail', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <tr>
                     <th>Title</th>
-                    <td><input type="text" name="title" value="" autofocus></td>
+                    <td>{!! Form::text('title', null, array('autofocus')) !!}
                 </tr>
                 <tr>
                     <th>Price Rate</th>
-                    <td><input type="text" name="rate" value=""></td>
+                    <td>{!! Form::text('rate') !!}
                 </tr>
                 <tr>
                     <th>Type</th>
                     <td>
-                        <select name="type" id="category-type">
-                        @if(isset($cate))
-                            @foreach($cate as $value)
-                                <option value="{{ $value['category_title']}}">{{ $value['category_title']}}</option>
-                            @endforeach
-                        @endif
-                        </select>
+                        {!! Form::select('type', $cate, 'default', array('id' => 'category-type')) !!}
                     </td>
                 </tr>
                 <tr>
@@ -40,9 +34,9 @@
                 </tr>
                 <tr>
                     <th>Operations</th>
-                    <td><input type="submit" value="Add"></td>
+                    <td>{!! Form::submit('Add') !!}</td>
                 </tr>
-            </form>
+            {!! Form::close() !!}
         </table>
     </div>
 </div>

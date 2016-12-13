@@ -39,7 +39,7 @@ class AdminDetailController extends Controller
     /*=============================== ADD ===============================*/
     public function addDetailView(){
         $menu = new BackMenus();
-        $result_menu = $menu->getParent();
+        $result_menu = $menu->getParentTitle();
 
     	return view('back_end.detail.add.index')->with('menu', $result_menu);
     }
@@ -127,10 +127,11 @@ class AdminDetailController extends Controller
         }
     }
 
+    /*=============================== ADD PRICES ===============================*/
     public function addPriceView(){
         $cate = new BackCategories();
         $detail = new BackDetails();
-        $result_category = $cate->getAllData();
+        $result_category = $cate->getDataTitle();
         $default = $cate->getDefaultData();
         
         $result_detail = $detail->getDynamicData($default);

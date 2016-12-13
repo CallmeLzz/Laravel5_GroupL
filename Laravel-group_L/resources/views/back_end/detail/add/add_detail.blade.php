@@ -5,43 +5,36 @@
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif
         <table style="width: 100%">
-            <form method="POST" action="{{ route('addDetail') }}" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {!! Form::open(['route' => 'addDetail', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <tr>
                     <th>Title</th>
-                    <td><input type="text" name="title" value="" autofocus></td>
+                    <td>{!! Form::text('title', null, array('autofocus')) !!}</td>
                 </tr>
                 <tr>
                     <th>Brief Description</th>
-                    <td><input type="text" name="brief_description" value=""></td>
+                    <td>{!! Form::text('brief_description') !!}</td>
                 </tr>
                 <tr>
                     <th>Full Description</th>
                     <td>
-                        <textarea name="full_description" style="width: 450px;" rows="4"></textarea>
+                        {!! Form::textarea('full_description', null, array('rows' => '4')) !!}
                     </td>
                 </tr>
                 <tr>
                     <th>Images</th>
-                    <td><input type="file" name="fileToUpload"></td>
+                    <td>{!! Form::file('fileToUpload') !!}</td>
                 </tr>
                 <tr>
                     <th>Type</th>
                     <td>
-                        <select name="type">
-                        @if(isset($menu))
-                            @foreach($menu as $value)
-                                <option value="{{ $value['menu_title']}}">{{ $value['menu_title']}}</option>
-                            @endforeach
-                        @endif
-                        </select>
+                        {!! Form::select('type', $menu) !!}
                     </td>
                 </tr>
                 <tr>
                     <th>Operations</th>
-                    <td><input type="submit" value="Add"></td>
+                    <td>{!! Form::submit('Add') !!}</td>
                 </tr>
-            </form>
+            {!! Form::close() !!}
         </table>
     </div>
 </div>

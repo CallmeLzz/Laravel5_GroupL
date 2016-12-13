@@ -5,41 +5,34 @@
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif
         <table style="width: 100%">
-            <form action="{{ route('addMenu') }}">
-                <tr>
-                    <th>Title</th>
-                    <td><input type="text" name="title" value="" autofocus></td>
+            {!! Form::open(['route' => 'addMenu', 'method' => 'GET']) !!}
+                <tr> 
+                    <th> {!! Form::label('Title') !!} </th>
+                    <td> {!! Form::text('title', null, array('autofocus' => 'autofocus')) !!} </td>
                 </tr>
-
                 <tr>
-                    <th>Level</th>
-                    <td>
-                        <select name="level">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                    <th> {!! Form::label('Level') !!}</th>
+                    <td> 
+                        {!! 
+                            Form::select('level', [
+                                '1' => '1', 
+                                '2' => '2', 
+                                '3' => '3'
+                                ]) 
+                        !!}
                     </td>
                 </tr>
                 <tr>
                     <th>Parents</th>
                     <td>
-                        <select name="parents">
-                            <option value=""></option>
-                        @if(isset($menu))
-                            @foreach($menu as $value)
-                                <option value="{{ $value['menu_id']}}">{{ $value['menu_id']}}</option>
-                            @endforeach
-                        @endif
-                        </select>
+                        {!! Form::select('parents', array('' => '') + $menuID) !!}
                     </td>
                 </tr>
-
                 <tr>
                     <th>Operations</th>
-                    <td><input type="submit" value="Add"></td>
+                    <td>{!! Form::submit('Add') !!}</td>
                 </tr>
-            </form>
+            {!! Form::close() !!}
         </table>
     </div>
 </div>

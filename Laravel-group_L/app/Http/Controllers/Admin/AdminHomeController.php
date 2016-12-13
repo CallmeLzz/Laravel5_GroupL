@@ -32,14 +32,13 @@ class AdminHomeController extends Controller
 		        return view('back_end.home.add.index')->with('banner', $result_banner);
 		    }
 		    public function addBanner(Request $request){
-		        $id = $request->input('id');
 		        $banner_title = $request->input('title');
 		        $type = $request->input('type');
 		        $banner = new BackBanners();
 
 		        $img = Input::file('fileToUpload');
 		        if ($img != null){
-		            $result_banner = $banner->add($id, $banner_title, $this->uploadPicture('fileToUpload', 'banners'), $type);
+		            $result_banner = $banner->add($banner_title, $this->uploadPicture('fileToUpload', 'banners'), $type);
 		            return redirect()->route('adminBanner');
 		        }
 		        else {
@@ -57,7 +56,9 @@ class AdminHomeController extends Controller
 		        $banner = new BackBanners();
 		        $result_banner = $banner->getDataCond($id);
 		        
-		        return view('back_end.home.edit.index')->with('banner', $result_banner);
+		        return view('back_end.home.edit.index')->with([
+		        		'banner' => $result_banner,
+		        		]);
 		    }
 		    public function editBanner(Request $request){
 		        $id = $request->input('id');
@@ -145,8 +146,8 @@ class AdminHomeController extends Controller
 		    public function addMenu(Request $request){
 		    	$menu = new BackMenus();
 		        if ($request->input('title') == null){
-		            $result_menu = $menu->getParent();
-		            return view('back_end.home.add.index')->with('menu', $result_menu);
+		            $result_menu = $menu->getParentID();
+		            return view('back_end.home.add.index')->with('menuID', $result_menu);
 		        }
 		        else {
 		        	$menu_title = $request->input('title');

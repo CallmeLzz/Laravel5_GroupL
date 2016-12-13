@@ -20,6 +20,12 @@ class BackMenus extends Model
 	public function getParent(){
 		return self::all();
 	}
+	public function getParentID(){
+		return self::pluck('menu_id', 'menu_id')->toArray();
+	}
+	public function getParentTitle(){
+		return self::pluck('menu_title', 'menu_title')->toArray();
+	}
 	public function getParentCond($id){
 		return self::where('menu_id', $id)->get();
 	}

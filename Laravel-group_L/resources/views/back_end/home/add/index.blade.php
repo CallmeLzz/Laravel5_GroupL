@@ -9,7 +9,7 @@
 	@section('right-menu')
 		@include('back_end.home.layout.right_banner')
 	@stop
-@elseif(isset($menu))
+@elseif(isset($menuID))
 	@section('title', 'Admin Menu Page - Add')
 
 	@section('main-content')
