@@ -3,11 +3,7 @@
   z-index: 0;
 }
 .banner .owl-item {
-  height: 900px;
-}
-.banner .owl-nav {
-  position: absolute;
-  z-index: 1;
+  max-height: 500px;
 }
 .banner .owl-dots {
   position: absolute;
