@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2016 at 04:47 PM
+-- Generation Time: Dec 14, 2016 at 02:45 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -30,7 +30,7 @@ USE `web2`;
 
 DROP TABLE IF EXISTS `banners`;
 CREATE TABLE `banners` (
-  `banner_id` int(3) NOT NULL,
+  `banner_id` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `banner_title` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `banner_img` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `banner_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL
@@ -41,9 +41,10 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`banner_id`, `banner_title`, `banner_img`, `banner_type`) VALUES
-(1, 'Sky1', 'images/banners/56982.jpg', 'home'),
-(2, 'Sky2', 'images/banners/13302.jpg', 'home'),
-(3, 'Sky3', 'images/banners/20448.jpg', 'home');
+('B01', 'Sky1', 'images/banners/57977.jpg', 'home'),
+('B02', 'Sky2', 'images/banners/12809.jpg', 'home'),
+('B03', 'Sky3', 'images/banners/93584.jpg', 'home'),
+('B04', 'Sky4', 'images/banners/41145.jpg', 'home');
 
 -- --------------------------------------------------------
 
@@ -215,11 +216,6 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `banners`
---
-ALTER TABLE `banners`
-  MODIFY `banner_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `prices`
 --
