@@ -22,6 +22,8 @@ class FrontDetail extends Model
 		return self::where('detail_id', $id)->paginate(1);
 	}
 	public function getDataCond($type){
-		return self::where('detail_type', $type)->get();
+        return  self::where('detail_type', $type)
+                        ->join('prices', 'price_detail', '=', 'detail_title')
+                        ->get();
 	}
 }

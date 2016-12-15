@@ -58,7 +58,7 @@
         <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     <!-- ======================== endST ======================== -->
     <!-- ======================== T ======================== -->
-        <script type="text/javascript" src="{{asset('js/jquery-2.2.4.min.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{asset('js/jquery-2.2.4.min.js')}}"></script> -->
         <script type="text/javascript" src="{{asset('js/newjavascript.js')}}"></script>
     <!-- ======================== T ======================== -->
 @stop

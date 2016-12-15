@@ -16,7 +16,7 @@
             <div class="col-md-6">
                 <div class="container">
                     <div class="images">
-                        <img src="../{{ $value['category_image'] }}" style="width: 50%;" >
+                        <img src="{{ asset($value['category_image']) }}" style="width: 50%;" >
                     </div>
                 </div>
             </div>

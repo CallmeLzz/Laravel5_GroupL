@@ -2,7 +2,7 @@
     <div id="page-heading">
     @if(isset($cate))
         @foreach($cate as $value)
-        <div style="background: url(../{{ $value['category_image'] }});
+        <div style="background: url({{ asset($value['category_image']) }});
             background-size: cover; 
             background-position: center top;
             width:100%; 

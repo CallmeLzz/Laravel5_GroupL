@@ -4,7 +4,7 @@
         <table>
             <tr>
                 <label> FEATURE: </label>
-                <a href="{{ URL::route('addPriceView') }}" 
+                <a href="{{ URL::route('addPrice') }}" 
                     class="btn btn-info pull left" style="margin-right:3px;">Add</a>
             </tr>
             <tr>
@@ -23,21 +23,21 @@
         <table style="width: 100%">
             <tr>
                 <th>ID</th>
-                <th>Title</th>
                 <th>Rate</th>
                 <th>Type</th>
+                <th>Detail</th>
                 <th>Operations</th>
             </tr>
         @if(isset($price))
             @foreach($price as $value)
             <tr>
                 <td>{{ $value['price_id'] }}</td>
-                <td>{{ $value['price_title'] }}</td>
                 <td>${{ $value['price_rate'] }}</td>
                 <td>{{ $value['price_type'] }}</td>
+                <td>{{ $value['price_detail'] }}</td>
                 <td>
-                    <a href="{{ route('editDetailView') }}?id={{ $value['detail_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
-                    <button class="btn btn-danger pull left submitDelete" source="{{ route('deleteDetail') }}?id={{ $value['detail_id'] }}">Delete</button>
+                    <a href="{{ route('editPrice') }}?id={{ $value['price_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
+                    <button class="btn btn-danger pull left submitDelete" source="{{ route('deletePrice') }}?id={{ $value['price_id'] }}">Delete</button>
                 </td>
             </tr>
             @endforeach
@@ -49,13 +49,13 @@
                 <li class="disabled"><a href="#">&laquo;</a></li>
             @else
                 <?php $index = $price->currentPage(); $index--; ?>
-                <li><a href="{{ URL::route('adminDetail') }}?page={{ $index }}">&laquo;</a></li>
+                <li><a href="{{ URL::route('adminDetailPrice') }}?page={{ $index }}">&laquo;</a></li>
             @endif
                 @while($i <= $price->lastPage())
                     @if($price->currentPage() == $i)
-                        <li class="disabled"><a href="{{ URL::route('adminDetail') }}?page={{ $i }}">{{ $i }}</a></li>
+                        <li class="disabled"><a href="{{ URL::route('adminDetailPrice') }}?page={{ $i }}">{{ $i }}</a></li>
                     @else
-                        <li><a href="{{ URL::route('adminDetail') }}?page={{ $i }}">{{ $i }}</a></li>
+                        <li><a href="{{ URL::route('adminDetailPrice') }}?page={{ $i }}">{{ $i }}</a></li>
                     @endif
                     <?php $i++; ?>
                 @endwhile
@@ -63,7 +63,7 @@
                 <li class="disabled"><a href="#">&raquo;</a></li>
             @else
                 <?php $index = $price->currentPage(); $index++; ?>
-                <li><a href="{{ URL::route('adminDetail') }}?page={{ $index }}">&raquo;</a></li>
+                <li><a href="{{ URL::route('adminDetailPrice') }}?page={{ $index }}">&raquo;</a></li>
             @endif
         </ul>
     <!-- ========================================================================================== -->

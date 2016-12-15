@@ -5,7 +5,7 @@
                 <div class="col-xs-12">
                     <a href="/" id="logo">
                 <span>
-                <img src="../images/logo/leisure.png" class="logo-img">
+                <img src="{{ asset('images/logo/leisure.png') }}" class="logo-img">
                 </span>
                     </a>
                     <div>

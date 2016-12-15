@@ -171,12 +171,22 @@
 					]);
 		//========================== Prices ==========================//
 			//================ Add ================//
-				Route::get('/admin/addPriceView', [
-					'as' => 'addPriceView',
-					'uses' => 'Admin\AdminDetailController@addPriceView'
+				Route::get('/admin/addPrice', [
+					'as' => 'addPrice',
+					'uses' => 'Admin\AdminDetailController@addPrice'
 					]);
 				Route::get('/getDetailTypeDynamicData', 
 					'Admin\AdminDetailController@getDetailTypeDynamicData');
+			//================ Edit ================//
+				Route::get('/admin/editPrice', [
+					'as' => 'editPrice',
+					'uses' => 'Admin\AdminDetailController@editPrice'
+					]);
+			//================ Delete ================//
+				Route::get('/admin/deletePrice', [
+					'as' => 'deletePrice',
+					'uses' => 'Admin\AdminDetailController@deletePrice'
+					]);
 
 
 	Route::get('/admin/uploadFileView', 'Admin\AdminController@uploadFileView');

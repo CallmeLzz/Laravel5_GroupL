@@ -5,14 +5,10 @@
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif
         <table style="width: 100%">
-            {!! Form::open(['route' => 'addDetail', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                <tr>
-                    <th>Title</th>
-                    <td>{!! Form::text('title', null, array('autofocus')) !!}
-                </tr>
+            {!! Form::open(['route' => 'addPrice', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
                 <tr>
                     <th>Price Rate</th>
-                    <td>{!! Form::text('rate') !!}
+                    <td>{!! Form::text('rate', null, array('autofocus')) !!}
                 </tr>
                 <tr>
                     <th>Type</th>
@@ -23,7 +19,7 @@
                 <tr>
                     <th>Detail</th>
                     <td>
-                        <select name="type" id="detailcategory">
+                        <select name="detail" id="detailcategory">
                         @if(isset($detail))
                             @foreach($detail as $value)
                                 <option value="{{ $value['detail_title'] }}"> {{ $value['detail_title'] }} </option>

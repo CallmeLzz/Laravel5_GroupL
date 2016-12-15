@@ -26,7 +26,7 @@ $(document).ready(function(){
 						id = q.detail_id,
 						title = q.detail_title;
 
-                        s+=' <option value="{ title }">' + title + '</option>'
+                        s+=' <option value="' + title + '">' + title + '</option>'
 						//s = s.replace(/\{title\}/g, title);
 					count_product++;
 				}

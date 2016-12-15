@@ -9,7 +9,7 @@
 							<div class="wpb_single_image wpb_content_element vc_align_left">
 								<figure class="wpb_wrapper vc_figure">
 									<div class="vc_single_image-wrapper vc_box_border_grey">
-										<img width="750" height="563" src="../{{ $value['detail_image'] }}" class="vc_single_image-img attachment-large" alt="content-rooms-3" sizes="(max-width: 750px) 100vw, 750px">
+										<img width="750" height="563" src="{{ asset($value['detail_image']) }}" class="vc_single_image-img attachment-large" alt="content-rooms-3" sizes="(max-width: 750px) 100vw, 750px">
 									</div>
 								</figure>
 							</div>
@@ -22,7 +22,7 @@
 							<div class="wpb_text_column wpb_content_element white-box content-padding">
 								<div class="wpb_wrapper">
 									<h2 class="text-uppercase" style="text-align: left;">
-										<small>STARTING AT $120 / NIGHT&nbsp;</small>
+										<small>STARTING AT ${{ $value['price_rate'] }} / NIGHT&nbsp;</small>
 										<a style="cursor: pointer; color: black;" 
 											href="{{ URL::route('detail') }}?id={{ strtoupper($value['detail_id']) }}">
 											{{ strtoupper($value['detail_title']) }}

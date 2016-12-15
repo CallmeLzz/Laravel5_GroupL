@@ -17,6 +17,8 @@ class HomeController extends Controller
         $banner = new FrontBanners();
         $result_banner = $banner->getData();
 
+        /*var_dump($result_banner->toArray());
+        die();*/
 
         /*$allmenu = $menu->getData(null);
         echo $allmenu;

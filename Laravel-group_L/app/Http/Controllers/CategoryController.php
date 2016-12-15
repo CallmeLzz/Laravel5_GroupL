@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Front\FrontMenus;
 use App\Models\Front\FrontDetail;
 use App\Models\Front\FrontCategories;
+use App\Models\Front\FrontPrices;
 
 class CategoryController extends Controller
 {
@@ -15,10 +16,12 @@ class CategoryController extends Controller
     	$menu = new FrontMenus();
         $cate = new FrontCategories();
         $detail = new FrontDetail();
+        $price = new FrontPrices();
 
         $result_menu = $menu->getData();
     	$result_cate = $cate->getDataCond($type);
         $result_detail = $detail->getDataCond($type);
+        $result_price = $price->getDataCond($type);
 
     	$country = 'Vietnam';
         $city = 'Ho Chi Minh city';
@@ -36,7 +39,8 @@ class CategoryController extends Controller
             'nextDay' => $nextDay,
     		'cate' => $result_cate,
             'menu' => $result_menu,
-            'detail' => $result_detail
+            'detail' => $result_detail,
+            'price' => $result_price
     		]);
     }
 }

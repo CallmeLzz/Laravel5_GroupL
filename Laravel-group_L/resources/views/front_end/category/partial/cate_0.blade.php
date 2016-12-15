@@ -9,14 +9,14 @@
 								<div class="wpb_text_column wpb_content_element ">
 									<div class="wpb_wrapper">
 										<h2 id="view" class="text-uppercase text-center" style="text-align: center;">
-											<small>STARTING AT $120 / NIGHT</small>
+											<small>STARTING AT ${{ $value['price_rate'] }} / NIGHT</small>
 											<a style="cursor: pointer; color: black; text-decoration: none;" 
 												href="{{ URL::route('detail') }}?id={{ strtoupper($value['detail_id']) }}">
 												{{ strtoupper($value['detail_title']) }}
 											</a>
 										</h2>
 										<p style="text-align: center;">
-											<img class="aligncenter wp-image-698 size-full" src="../{{ $value['detail_image'] }}" alt="content-rooms-1">
+											<img class="aligncenter wp-image-698 size-full" src="{{ asset($value['detail_image']) }}" alt="content-rooms-1">
 										</p>
 										<p style="text-align: center;">
 											{{ $value['detail_brief_description'] }}
@@ -36,14 +36,14 @@
 								<div class="wpb_text_column wpb_content_element ">
 									<div class="wpb_wrapper">
 										<h2 id="sideview" class="text-uppercase text-center" style="text-align: center;">
-											<small>STARTING AT $120 / NIGHT</small>
+											<small>STARTING AT ${{ $value['price_rate'] }} / NIGHT</small>
 											<a style="cursor: pointer; color: black; text-decoration: none;" 
 												href="{{ URL::route('detail') }}?id={{ strtoupper($value['detail_id']) }}">
 												{{ strtoupper($value['detail_title']) }}
 											</a>
 										</h2>
 										<p style="text-align: center;">
-											<img class="aligncenter wp-image-695 size-full" src="../{{ $value['detail_image'] }}" alt="content-rooms">
+											<img class="aligncenter wp-image-695 size-full" src="{{ asset($value['detail_image']) }}" alt="content-rooms">
 										</p>
 										<p style="text-align: center;">
 											{{ $value['detail_brief_description'] }}
