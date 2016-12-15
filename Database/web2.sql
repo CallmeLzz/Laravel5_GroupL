@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2016 at 02:45 PM
+-- Generation Time: Dec 15, 2016 at 04:33 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -136,23 +136,29 @@ INSERT INTO `menus` (`menu_id`, `menu_title`, `menu_level`, `menu_parents`) VALU
 
 DROP TABLE IF EXISTS `prices`;
 CREATE TABLE `prices` (
-  `price_id` int(3) NOT NULL,
-  `price_title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `price_id` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `price_rate` int(3) NOT NULL,
-  `price_type` varchar(30) CHARACTER SET utf8 NOT NULL
+  `price_type` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `price_detail` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `prices`
 --
 
-INSERT INTO `prices` (`price_id`, `price_title`, `price_rate`, `price_type`) VALUES
-(1, 'Round Cove Suite', 180, 'Rooms Listing'),
-(2, 'Signature Water View', 160, 'Rooms Listing'),
-(3, 'Signature Water Side', 140, 'Rooms Listing'),
-(4, 'Signature Junior Suite', 120, 'Rooms Listing'),
-(5, 'English & Continental Breakfast', 10, 'Rooms Listing'),
-(6, '24h Wifi Access', 10, 'Rooms Listing');
+INSERT INTO `prices` (`price_id`, `price_rate`, `price_type`, `price_detail`) VALUES
+('D01', 180, 'Rooms Listing', 'Round Cove Suite'),
+('D02', 160, 'Rooms Listing', 'Signature Water View'),
+('D03', 140, 'Rooms Listing', 'Signature Water Side'),
+('D04', 120, 'Rooms Listing', 'Signature Junior Suite'),
+('D05', 220, 'Pro Golf Club', 'Club Golf Tournaments'),
+('D06', 280, 'Pro Golf Club', 'Woman of The PGCC Events'),
+('D07', 230, 'Pro Golf Club', 'Senior Tournaments'),
+('D08', 390, 'Pro Golf Club', 'Junior Golf Clinic'),
+('D09', 60, 'Swimming Pools', 'Water Polo'),
+('D10', 80, 'Swimming Pools', 'Swimming Battleball'),
+('D11', 110, 'Swimming Pools', 'Whale'),
+('D12', 190, 'Swimming Pools', 'Marco Polo');
 
 -- --------------------------------------------------------
 
@@ -212,15 +218,6 @@ ALTER TABLE `prices`
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `prices`
---
-ALTER TABLE `prices`
-  MODIFY `price_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
