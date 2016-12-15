@@ -40,6 +40,14 @@
 				'as' => 'admin',
 				'uses' => 'Admin\AdminController@index'
 				]);
+			Route::get('/admin/showLogin', [
+				'as' => 'showLogin',
+				'uses' => 'Admin\AdminController@showLogin'
+				]);
+			Route::get('/admin/login', [
+				'as' => 'login',
+				'uses' => 'Admin\AdminController@doLogin'
+				]);
 			Route::get('/admin/search', [
 				'as' => 'adminSearch',
 				'uses' => 'Admin\AdminController@search'

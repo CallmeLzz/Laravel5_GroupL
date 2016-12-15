@@ -21,8 +21,11 @@ class AdminController extends Controller
             'menu' => $result_menu,
             'banner' => $result_banner
             ]);
+        //return view('back_end.auth.login');
     }
-
+    public function showLogin(){
+        return view('back_end.auth.login');
+    }
     public function search(){
     }
     /*=============================== Upload File ===============================*/

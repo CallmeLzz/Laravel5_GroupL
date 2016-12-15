@@ -13,6 +13,9 @@
             <li>
                 <a href="#">File Manager</a>
             </li>
+            <li>
+                <a href="{{ URL::route('showLogin') }}">Log In</a>
+            </li>
         </ul>
     </div>
 </div>
