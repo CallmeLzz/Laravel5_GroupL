@@ -29,7 +29,7 @@
 				<p class="title">Log in</p>
 				{!! Form::text('username', null, array('placeholder' => 'Username', 'autofocus')) !!}
 					<i class="fa fa-user"></i>
-				{!! Form::text('password', null, array('placeholder' => 'Password')) !!}
+				{!! Form::password('password', null, array('placeholder' => 'Password')) !!}
 					<i class="fa fa-key"></i>
 				<a href="#">Forgot your password?</a>
 				<i class="spinner"></i>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Excel;
 use App\Models\Back\BackBanners;
 use App\Models\Back\BackMenus;
 
@@ -176,5 +177,16 @@ class AdminHomeController extends Controller
 
 		        return view('back_end.home.search.index')->with('searchMenu', $searchResult);
 		    }
+	    /*=============================== EXPORT TO EXCEL ===============================*/
+	    	public function exportMenu(){
+	    		$menu = new BackMenus();
+	    		$result_menu = $menu->getParent();
+
+	    		Excel::create('menus', function($excel) use($result_menu){
+	    			$excel->sheet('MenuSheet', function($sheet) use($result_menu){
+	    				$sheet->fromArray($result_menu);
+	    			});
+	    		})->export('xls');
+	    	}
     /*=================================================================================*/
 }

@@ -99,6 +99,11 @@
 				'as' => 'searchMenu',
 				'uses' => 'Admin\AdminHomeController@searchMenu'
 				]);
+		//================ Export to Excel ================//
+			Route::get('/admin/exportMenu', [
+				'as' => 'exportMenu',
+				'uses' => 'Admin\AdminHomeController@exportMenu'
+				]);
 	//================================== Banner ==================================//
 		//================ Add ================//
 			Route::get('/admin/addBannerView', [
