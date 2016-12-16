@@ -1,11 +1,13 @@
 <div class="admin-content">
     <div class="main">
-    <h3> Detail Page </h3>
+    <h3> Detail Page - Price </h3>
         <table>
             <tr>
                 <label> FEATURE: </label>
                 <a href="{{ URL::route('addPrice') }}" 
                     class="btn btn-info pull left" style="margin-right:3px;">Add</a>
+                <a href="{{ URL::route('exportPrice') }}" 
+                    class="btn btn-info pull left" style="margin-right:3px;">Export to Excel</a>
             </tr>
             <tr>
                 <form method="GET" action="{{ URL::route('adminDetail') }}">

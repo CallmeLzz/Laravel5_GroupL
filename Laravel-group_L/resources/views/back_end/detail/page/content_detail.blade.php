@@ -6,6 +6,8 @@
                 <label> FEATURE: </label>
                 <a href="{{ URL::route('addDetailView') }}" 
                     class="btn btn-info pull left" style="margin-right:3px;">Add</a>
+                <a href="{{ URL::route('exportDetail') }}" 
+                    class="btn btn-info pull left" style="margin-right:3px;">Export to Excel</a>
             </tr>
             <tr>
                 <form method="GET" action="{{ URL::route('adminDetail') }}">

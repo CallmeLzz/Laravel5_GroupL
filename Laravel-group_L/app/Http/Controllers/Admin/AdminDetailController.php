@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Excel;
 use App\Models\Back\BackDetails;
 use App\Models\Back\BackMenus;
 use App\Models\Back\BackCategories;
@@ -127,6 +128,17 @@ class AdminDetailController extends Controller
                 	unlink(public_path() . '/' . $picName);
                 }
             }
+        /*=============================== EXPORT TO EXCEL ===============================*/
+            public function exportDetail(){
+                $detail = new BackDetails();
+                $result_detail = $detail->exportDetail();
+                
+                Excel::create('details', function($excel) use($result_detail){
+                    $excel->sheet('DetailSheet', function($sheet) use($result_detail){
+                        $sheet->fromArray($result_detail);
+                    });
+                })->export('xls');
+            }
     /*======================================== PRICES ========================================*/
         /*=============================== ADD PRICES ===============================*/
             public function addPrice(Request $request){
@@ -208,5 +220,16 @@ class AdminDetailController extends Controller
                 $price->deletePrice($id);
 
                 return redirect()->route('adminDetailPrice');
+            }
+        /*=============================== EXPORT TO EXCEL ===============================*/
+            public function exportPrice(){
+                $price = new BackPrices();
+                $result_price = $price->exportPrice();
+
+                Excel::create('prices', function($excel) use($result_price){
+                    $excel->sheet('PriceSheet', function($sheet) use($result_price){
+                        $sheet->fromArray($result_price);
+                    });
+                })->export('xls');
             }
 }

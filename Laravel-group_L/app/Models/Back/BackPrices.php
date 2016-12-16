@@ -26,6 +26,9 @@ class BackPrices extends Model
     public function getDataDefault($type){
         return BackPrices::where('price_type', '<>', $type)->pluck('price_type', 'price_type')->toArray();
     }
+    public function exportPrice(){
+        return BackPrices::all();
+    }
     /*=============================== ADD ===============================*/
         public function addPrice($rate, $type, $detail){
             if ($this->checkExistsData($detail) == false){

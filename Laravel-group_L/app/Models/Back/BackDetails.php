@@ -33,6 +33,12 @@ class BackDetails extends Model
     public function getDynamicData($type){
         return BackDetails::where('detail_type', $type)->get();
     }
+    public function exportDetail(){
+        return BackDetails::select('detail_id', 'detail_title', 'detail_brief_description', 
+                'detail_full_description', 'detail_image', 'detail_type', 'price_rate')
+                ->join('prices', 'price_detail', '=', 'detail_title')
+                ->get();
+    }
     /*=============================== ADD ===============================*/
         public function addDetail($title, $b_description, $f_description, $img, $type){
             if ($this->checkExistsData($title) == false){

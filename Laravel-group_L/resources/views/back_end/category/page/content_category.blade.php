@@ -11,6 +11,10 @@
                     class="btn btn-info pull left" style="margin-right:3px;">Add</a>
             </tr>
             <tr>
+                <a href="{{ URL::route('exportBanner') }}" 
+                    class="btn btn-info pull left" style="margin-right:3px;">Export to Excel</a>
+            </tr>
+            <tr>
                 <form method="GET" action="{{ URL::route('adminCategory') }}">
                     <span>SORT: </span>
                     <select name="sort">

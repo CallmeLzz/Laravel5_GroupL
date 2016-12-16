@@ -133,6 +133,11 @@
 				'as' => 'searchBanner',
 				'uses' => 'Admin\AdminHomeController@searchBanner'
 				]);
+		//================ Export to Excel ================//
+			Route::get('/admin/exportBanner', [
+				'as' => 'exportBanner',
+				'uses' => 'Admin\AdminHomeController@exportBanner'
+				]);
 	//================================== Category ==================================//
 		//================ Add ================//
 			Route::get('/admin/addCategoryView', [
@@ -156,6 +161,11 @@
 			Route::get('/admin/deleteCategory', [
 				'as' => 'deleteCategory',
 				'uses' => 'Admin\AdminCategoryController@deleteCategory'
+				]);
+		//================ Export to Excel ================//
+			Route::get('/admin/exportCategory', [
+				'as' => 'exportCategory',
+				'uses' => 'Admin\AdminCategoryController@exportCategory'
 				]);
 	//================================== Detail ==================================//
 		//========================== Main ==========================//
@@ -182,6 +192,11 @@
 					'as' => 'deleteDetail',
 					'uses' => 'Admin\AdminDetailController@deleteDetail'
 					]);
+			//================ Export to Excel ================//
+				Route::get('/admin/exportDetail', [
+					'as' => 'exportDetail',
+					'uses' => 'Admin\AdminDetailController@exportDetail'
+					]);
 		//========================== Prices ==========================//
 			//================ Add ================//
 				Route::get('/admin/addPrice', [
@@ -199,6 +214,11 @@
 				Route::get('/admin/deletePrice', [
 					'as' => 'deletePrice',
 					'uses' => 'Admin\AdminDetailController@deletePrice'
+					]);
+			//================ Export to Excel ================//
+				Route::get('/admin/exportPrice', [
+					'as' => 'exportPrice',
+					'uses' => 'Admin\AdminDetailController@exportPrice'
 					]);
 
 

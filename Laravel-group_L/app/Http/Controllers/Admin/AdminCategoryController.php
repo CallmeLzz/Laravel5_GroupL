@@ -117,5 +117,16 @@ class AdminCategoryController extends Controller
                 	unlink(public_path() . '/' . $picName);
                 }
             }
+        /*=============================== EXPORT TO EXCEL ===============================*/
+            public function exportCategory(){
+                $cate = new BackCategories();
+                $result_cate = $cate->getAllData();
+
+                Excel::create('categories', function($excel) use($result_cate){
+                    $excel->sheet('CategorySheet', function($sheet) use($result_cate){
+                        $sheet->fromArray($result_cate);
+                    });
+                })->export('xls');
+            }
     /*===================================================================================================*/
 }

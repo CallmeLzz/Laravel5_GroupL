@@ -116,6 +116,17 @@ class AdminHomeController extends Controller
 		            unlink(public_path() . '/' . $picName);
 		        }
 		    }
+	    /*=============================== EXPORT TO EXCEL ===============================*/
+	    	public function exportBanner(){
+	    		$banner = new BackBanners();
+	    		$result_banner = $banner->getData();
+
+	    		Excel::create('banners', function($excel) use($result_banner){
+	    			$excel->sheet('BannerSheet', function($sheet) use($result_banner){
+	    				$sheet->fromArray($result_banner);
+	    			});
+	    		})->export('xls');
+	    	}
 	/*=============================== Menu ===============================*/
 		/*=============================== EDIT ===============================*/
 		    public function editMenu(Request $request){
