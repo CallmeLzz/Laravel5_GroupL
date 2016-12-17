@@ -5,15 +5,14 @@
         <label><font color="red"><?php echo $message; ?></font></label>
     @endif
         <table style="width: 100%">
-            <form method="POST" action="{{ route('addCategory') }}" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {!! Form::open(['route' => 'addCategory', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <tr>
                     <th>Title</th>
-                    <td><input type="text" name="title" value="" autofocus></td>
+                    <td>{!! Form::text('title', null, array('autofocus')) !!}</td>
                 </tr>
                 <tr>
                     <th>Description</th>
-                    <td><input type="text" name="description" value=""></td>
+                    <td>{!! Form::text('description') !!}</td>
                 </tr>
                 <tr>
                     <th>Type</th>
@@ -29,13 +28,13 @@
                 </tr>
                 <tr>
                     <th>Images</th>
-                    <td><input type="file" name="fileToUpload"></td>
+                    <td>{!! Form::file('fileToUpload') !!}</td>
                 </tr>
                 <tr>
                     <th>Operations</th>
-                    <td><input type="submit" value="Add"></td>
+                    <td>{!! Form::submit('Add') !!}</td>
                 </tr>
-            </form>
+            {!! Form::close() !!}
         </table>
     </div>
 </div>

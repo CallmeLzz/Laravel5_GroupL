@@ -15,4 +15,10 @@
 	@section('main-content')
 	    @include('back_end.detail.add.add_price')
 	@stop
+@elseif(isset($feature))
+	@section('title', 'Admin Detail Page - Add Feature')
+
+	@section('main-content')
+	    @include('back_end.detail.add.add_feature')
+	@stop
 @endif

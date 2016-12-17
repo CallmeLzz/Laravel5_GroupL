@@ -25,8 +25,8 @@
                     Detail
                     <ul>
                         <li><a href="{{ URL::route('adminDetail') }}"> Detail </a></li>
-                        <li><a href="#"> Room Features </a></li>
-                        <li><a href="#"> Room Amenities </a></li>
+                        <li><a href="{{ URL::route('adminDetailFeature') }}"> Features </a></li>
+                        <li><a href="#"> Amenities </a></li>
                     </ul>
                 </li>
             </ul>
