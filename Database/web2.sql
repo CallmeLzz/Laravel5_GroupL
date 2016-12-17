@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2016 at 04:33 PM
+-- Generation Time: Dec 17, 2016 at 04:48 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -44,7 +44,7 @@ INSERT INTO `banners` (`banner_id`, `banner_title`, `banner_img`, `banner_type`)
 ('B01', 'Sky1', 'images/banners/57977.jpg', 'home'),
 ('B02', 'Sky2', 'images/banners/12809.jpg', 'home'),
 ('B03', 'Sky3', 'images/banners/93584.jpg', 'home'),
-('B04', 'Sky4', 'images/banners/41145.jpg', 'home');
+('B04', 'Sky4', 'images/banners/70686.jpg', 'home');
 
 -- --------------------------------------------------------
 
@@ -103,6 +103,33 @@ INSERT INTO `details` (`detail_id`, `detail_title`, `detail_brief_description`, 
 ('D10', 'Swimming Battleball', 'Praeterea iter est quasdam res quas ex communi. Mercedem aut nummos unde unde extricat, amaras. Integer legentibus erat a ante historiarum dapibus.', 'Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Prima luce, cum quibus mons aliud consensu ab eo. Quam temere in vitiis, legem sancimus haerentia. Nihil hic munitissimus habendi senatus locus, nihil horum? Vivamus sagittis lacus vel augue laoreet rutrum faucibus.', 'images/detail/73467.jpg', 'Swimming Pools'),
 ('D11', 'Whale', 'Praeterea iter est quasdam res quas ex communi. Mercedem aut nummos unde unde extricat, amaras. Integer legentibus erat a ante historiarum dapibus.', 'Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Prima luce, cum quibus mons aliud consensu ab eo. Quam temere in vitiis, legem sancimus haerentia. Nihil hic munitissimus habendi senatus locus, nihil horum? Vivamus sagittis lacus vel augue laoreet rutrum faucibus.', 'images/detail/22913.jpg', 'Swimming Pools'),
 ('D12', 'Marco Polo', 'Phasellus laoreet lorem vel dolor tempus vehicula. Integer legentibus erat a ante historiarum dapibus. Plura mihi bona sunt, inclinet, amari petere vellent. Quae vero auctorem tractata ab fiducia dicuntur.', 'Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Quae vero auctorem tractata ab fiducia dicuntur. Morbi fringilla convallis sapien, id pulvinar odio volutpat', 'images/detail/59483.jpg', 'Swimming Pools');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `features`
+--
+
+DROP TABLE IF EXISTS `features`;
+CREATE TABLE `features` (
+  `feature_id` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `feature_title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `feature_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `feature_content` varchar(100) CHARACTER SET utf8 NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `features`
+--
+
+INSERT INTO `features` (`feature_id`, `feature_title`, `feature_type`, `feature_content`) VALUES
+('F01', 'Round Cove Suite', 'Rooms Listing', 'DVD/CD Player'),
+('F02', 'Round Cove Suite', 'Rooms Listing', 'Cable Channels'),
+('F03', 'Round Cove Suite', 'Rooms Listing', '40″ LCD Television with Remote Control'),
+('F04', 'Round Cove Suite', 'Rooms Listing', 'Disability Accessible Room'),
+('F05', 'Round Cove Suite', 'Rooms Listing', 'Connecting Rooms Available'),
+('F06', 'Round Cove Suite', 'Rooms Listing', '100% Non-Smoking Guest Rooms'),
+('F07', 'Round Cove Suite', 'Rooms Listing', '24-Hour In-Room Dining');
 
 -- --------------------------------------------------------
 
@@ -199,6 +226,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `details`
   ADD PRIMARY KEY (`detail_id`);
+
+--
+-- Indexes for table `features`
+--
+ALTER TABLE `features`
+  ADD PRIMARY KEY (`feature_id`);
 
 --
 -- Indexes for table `menus`
