@@ -81,4 +81,16 @@ class BackPrices extends Model
         public function deletePrice($id){
             BackPrices::where('price_id', $id)->delete();
         }
+    /*=============================== SEARCH ===============================*/
+    public function searchPrice($type, $key){
+        $result = null;
+        if ($type == 'rate'){
+            $result = self::having('price_'.$type, '>=', $key)->get();
+        }
+        else {
+            $result = self::where('price_'.$type, 'like', '%'.$key.'%')->get();
+        }
+        if (sizeof($result) == 0) return "Your price NOT exists";
+        else return $result;
+    }
 }

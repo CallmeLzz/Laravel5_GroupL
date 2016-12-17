@@ -102,4 +102,11 @@ class BackCategories extends Model
         public function deleteCategory($id){
             BackCategories::where('category_id', $id)->delete();
         }
+    /*=============================== SEARCH ===============================*/
+    public function searchCategory($type, $key){
+        $result = self::where('category_'.$type, 'like', '%'.$key.'%')->get();
+
+        if (sizeof($result) == 0) return "Your category NOT exists";
+        else return $result;
+    }
 }

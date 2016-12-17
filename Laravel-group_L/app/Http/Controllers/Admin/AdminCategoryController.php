@@ -91,7 +91,15 @@ class AdminCategoryController extends Controller
             	return redirect()->route('adminCategory');
             }
         /*=============================== SEARCH ===============================*/
-            public function search(Request $request){}
+            public function searchCategory(Request $request){
+                $key = $request->input('q');
+                $type = $request->input('type');
+
+                $cate = new BackCategories();
+                $searchResult = $cate->searchCategory($type, $key);
+
+                return view('back_end.category.search.index')->with('searchCategory', $searchResult);
+            }
         /*=============================== UPLOAD PICTURES ===============================*/
             public function uploadPicture($img, $path){
                 $img_name = null;

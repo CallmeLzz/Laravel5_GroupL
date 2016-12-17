@@ -84,4 +84,11 @@ class BackBanners extends Model
     public function deleteBanner($id){
         BackBanners::where('banner_id', $id)->delete();
     }
+    /*=============================== SEARCH ===============================*/
+    public function searchBanner($type, $key){
+        $result = self::where('banner_'.$type, 'like', '%'.$key.'%')->get();
+
+        if (sizeof($result) == 0) return "Your banner NOT exists";
+        else return $result;
+    }
 }

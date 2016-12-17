@@ -10,6 +10,7 @@ use App\Models\Back\BackDetails;
 use App\Models\Back\BackMenus;
 use App\Models\Back\BackCategories;
 use App\Models\Back\BackPrices;
+use App\Models\Back\BackFeatures;
 
 class AdminDetailController extends Controller
 {
@@ -35,6 +36,14 @@ class AdminDetailController extends Controller
         return view('back_end.detail.page.index')->with([
             'price' => $result_price,
             'i' => $i
+            ]);
+    }
+    public function indexFeature(){
+        $feature = new BackFeatures();
+        $result_feature = $feature->getAllData();
+
+        return view('back_end.detail.page.index')->with([
+                'feature' => $result_feature
             ]);
     }
     /*======================================== MAIN ========================================*/
@@ -102,6 +111,16 @@ class AdminDetailController extends Controller
             	$detail->deleteDetail($id);
 
             	return redirect()->route('adminDetail');
+            }
+        /*=============================== SEARCH ===============================*/
+            public function searchDetail(Request $request){
+                $key = $request->input('q');
+                $type = $request->input('type');
+
+                $detail = new BackDetails();
+                $searchResult = $detail->searchDetail($type, $key);
+
+                return view('back_end.detail.search.index')->with('searchDetail', $searchResult);
             }
         /*=============================== UPLOAD PICTURES ===============================*/
             public function uploadPicture($img, $path){
@@ -221,6 +240,16 @@ class AdminDetailController extends Controller
 
                 return redirect()->route('adminDetailPrice');
             }
+        /*=============================== SEARCH ===============================*/
+            public function searchPrice(Request $request){
+                $key = $request->input('q');
+                $type = $request->input('type');
+
+                $price = new BackPrices();
+                $searchResult = $price->searchPrice($type, $key);
+
+                return view('back_end.detail.search.index')->with('searchPrice', $searchResult);
+            }
         /*=============================== EXPORT TO EXCEL ===============================*/
             public function exportPrice(){
                 $price = new BackPrices();
@@ -231,5 +260,51 @@ class AdminDetailController extends Controller
                         $sheet->fromArray($result_price);
                     });
                 })->export('xls');
+            }
+    /*======================================== FEATURES ========================================*/
+        /*=============================== ADD FEATURE ===============================*/
+            public function addFeature(Request $request){
+                $detail = new BackDetails();
+                $cate = new BackCategories();
+                $feature = new BackFeatures();
+
+                $default = $cate->getDefaultData();
+                $result_detail = $detail->getDynamicData($default);
+
+                $result_category = $cate->getDataTitle();
+                $result_feature = '123';
+
+                if($request->input('content') == null){
+                    return view('back_end.detail.add.index')->with([
+                            'feature' => $result_feature,
+                            'cate_default' => $result_category,
+                            'detail_default' => $result_detail
+                        ]);
+                }
+                else {
+                    $type = $request->input('type');
+                    $title = $request->input('title');
+                    $content = $request->input('content');
+
+                    $result_feature = $feature->addFeature($title, $type, $content);
+
+                    if ($result_feature != null){
+                        return response()->view('back_end.detail.add.index', [
+                            'feature' => $result_feature,
+                            'cate_default' => $result_category,
+                            'detail_default' => $result_detail,
+                            'message'=> $result_feature,
+                            ]);
+                    }
+                    else return redirect()->route('adminDetailFeature');
+                }
+            }
+        /*=============================== EDIT FEATURE ===============================*/
+            public function editFeature(Request $request){
+                
+                $id = $request->input('id');
+                $feature = new BackFeatures();
+                $result_feature = $feature->getDataCond($id);
+                var_dump($result_feature->toArray());
             }
 }

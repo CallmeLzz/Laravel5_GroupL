@@ -89,7 +89,12 @@ class AdminHomeController extends Controller
 	    /*========================== SEARCH ==========================*/
 		    public function searchBanner(Request $request){
 		        $key = $request->input('q');
-		        var_dump($key);
+		        $type = $request->input('type');
+
+		        $banner = new BackBanners();
+		        $searchResult = $banner->searchBanner($type, $key);
+
+		        return view('back_end.home.search.index')->with('searchBanner', $searchResult);
 		    }
 	    /*========================== UPLOAD PICTURE ==========================*/
 		    public function uploadPicture($img, $path){
@@ -180,7 +185,7 @@ class AdminHomeController extends Controller
 		    }
 	    /*=============================== SEARCH ===============================*/
 		    public function searchMenu(Request $request){
-		        $key = $request->input('key');
+		        $key = $request->input('q');
 		        $type = $request->input('type');
 
 		        $menu = new BackMenus();

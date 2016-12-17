@@ -41,7 +41,7 @@
                     <td>{{ $value['category_title'] }}</td>
                     <td>{{ substr($value['category_description'], 0, 80) }}...</td>
                     <td>{{ $value['category_type'] }}</td>
-                    <td><img class="img_zoom" src="../{{ $value['category_image'] }}"></td>
+                    <td><img class="img_zoom" src="{{ asset($value['category_image']) }}"></td>
                     <td>
                         <a href="{{ route('editCategoryView') }}?id={{ $value['category_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
                         <button class="btn btn-danger pull left submitDelete" source="{{ route('deleteCategory') }}?id={{ $value['category_id'] }}">Delete</button>

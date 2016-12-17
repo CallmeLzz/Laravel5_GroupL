@@ -1,6 +1,6 @@
 <div class="right-menu">
-    {!! Form::open(['route' => 'searchCategory', 'method' => 'GET']) !!}
-        <label>Category Search</label><br>
+    {!! Form::open(['route' => 'searchPrice', 'method' => 'GET']) !!}
+        <label>Price Search</label><br>
         {!! Form::text('q', null, array('placeholder' => 'Enter your key...')) !!}
         {!! Form::submit('GO') !!}<br>
         <tr>
@@ -9,10 +9,9 @@
                 {!! 
                     Form::select('type', [
                         'id' => 'ID',
-                        'title' => 'TITLE',
-                        'description' => 'DESCRIPTION',
+                        'rate' => 'RATE',
                         'type' => 'TYPE',
-                        'image' => 'IMAGE'
+                        'detail' => 'DETAIL'
                     ], null, array('style' => 'color: black;'))
                 !!}
             </td>

@@ -103,4 +103,10 @@ class BackDetails extends Model
         public function deleteDetail($id){
             BackDetails::where('detail_id', $id)->delete();
         }
+    /*=============================== SEARCH ===============================*/
+    public function searchDetail($type, $key){
+        $result = self::where('detail_'.$type, 'like', '%'.$key.'%')->get();
+        if (sizeof($result) == 0) return "Your detail NOT exists";
+        else return $result;
+    }
 }

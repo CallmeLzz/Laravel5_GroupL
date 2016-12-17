@@ -1,18 +1,20 @@
 <div class="right-menu">
-	<form action="{{ route('searchBanner') }}">
-	    <label>Menu Search</label><br>
-	    <input type="text" name="q" placeholder="Enter your key...">
-	    <input type="submit" value="GO"><br>
-	    <tr>
+    {!! Form::open(['route' => 'searchMenu', 'method' => 'GET']) !!}
+        <label>Menu Search</label><br>
+        {!! Form::text('q', null, array('placeholder' => 'Enter your key...')) !!}
+        {!! Form::submit('GO') !!}<br>
+        <tr>
             <label>Type: </label>
             <td>
-                <select name="type" style="color: black;">
-                    <option value="id">ID</option>
-                    <option value="title">TITLE</option>
-                    <option value="level">LEVEL</option>
-                    <option value="parents">PARENTS</option>
-                </select>
+                {!! 
+                    Form::select('type', [
+                        'id' => 'ID',
+                        'title' => 'TITLE',
+                        'level' => 'LEVEL',
+                        'parents' => 'PARENTS'
+                    ], null, array('style' => 'color: black;'))
+                !!}
             </td>
         </tr>
-	</form>
+    {!! Form::close() !!}
 </div>

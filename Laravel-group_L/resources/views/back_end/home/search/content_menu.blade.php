@@ -3,6 +3,7 @@
         <!-- <div>
             <a href="addView" class="btn btn-danger pull left" style="margin-right:3px;">Add</a>
         </div> -->
+        <h3> Result Search Menu Page </h3>
         <table style="width: 100%">
             <tr>
                 <th>ID</th>
