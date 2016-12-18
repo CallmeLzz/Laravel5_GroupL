@@ -18,6 +18,8 @@ class SendMailController extends Controller
     	$reservation = new BackReservations();
     	$result_reservation = $reservation->getDataCond($id);
 
+    	/*var_dump($result_reservation->toArray());
+    	die();*/
     	foreach ($result_reservation as $key => $value) {
     		$reservation_name = $value->reservation_name;
     		$reservation_email = $value->reservation_email;
@@ -25,6 +27,8 @@ class SendMailController extends Controller
     		$reservation_departure_date = $value->reservation_departure_date;
     		$reservation_type = $value->reservation_type;
     		$reservation_number_people = $value->reservation_number_people;
+    		$price_rate = $value->price_rate;
+    		$detail_image = $value->detail_image;
     	}
 
     	$data = [
@@ -34,11 +38,14 @@ class SendMailController extends Controller
     		'reservation_arrival_date' => $reservation_arrival_date,
     		'reservation_departure_date' => $reservation_departure_date,
     		'reservation_type' => $reservation_type,
-    		'reservation_number_people' => $reservation_number_people
+    		'reservation_number_people' => $reservation_number_people,
+    		'price_rate' => $price_rate,
+    		'detail_image' => $detail_image
     		];
     	Mail::send(['text' => 'mail'], $data, function($message) use ($data){
     		$message->to($data['reservation_email'], $data['reservation_name'])
     			->subject('Send mail from '.$data['author'].'.');
+			$message->attach(public_path() . '/' . $data['detail_image']);
     		$message->from('nguyenanhhoanld.thienhaxaxoi@gmail.com');
     	});
 

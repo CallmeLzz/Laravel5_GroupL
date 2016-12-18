@@ -23,7 +23,16 @@ class BackReservations extends Model
 		return BackReservations::paginate(5);
 	}
 	public function getDataCond($id){
-		return BackReservations::where('reservation_id', 'LIKE', $id)->get();
+		return BackReservations::select('reservation_name', 'reservation_email', 'reservation_arrival_date', 
+                'reservation_departure_date', 'reservation_type', 'reservation_number_people', 
+                'price_rate', 'detail_image')
+					->where('reservation_id', '=', $id)
+	                ->join('prices', 'price_detail', '=', 'reservation_type')
+	                ->join('details', 'detail_title', '=', 'reservation_type')
+	                ->get();/*
+					->join('prices', 'price_detail', '=', 'reservation_type')
+					->where('reservation_id', 'LIKE', $id)
+					->get();*/
 	}
 	/*=============================== Delete ===============================*/
 		public function deleteReservation($id){
