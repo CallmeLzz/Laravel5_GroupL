@@ -116,11 +116,54 @@ class AdminDetailController extends Controller
             public function searchDetail(Request $request){
                 $key = $request->input('q');
                 $type = $request->input('type');
-
                 $detail = new BackDetails();
-                $searchResult = $detail->searchDetail($type, $key);
+
+                $img = Input::file('fileToUpload');
+                if($img != null){
+                    $searchResult = $detail->getDataCond($this->searchByImage('fileToUpload', $img));
+                    if ($searchResult == null) $searchResult = "Your detail NOT exists";
+                }
+                else {
+                    $searchResult = $detail->searchDetail($type, $key);
+                }
 
                 return view('back_end.detail.search.index')->with('searchDetail', $searchResult);
+            }
+            public function searchByImage($sourcePicName, $img){
+                $picName = $this->uploadPicture($sourcePicName, 'search');
+                $extension = $img->getClientOriginalExtension();
+
+                if($extension == 'jpg'){
+                    $image = imagecreatefromjpeg(public_path(). '/images/search/' . $picName);
+                }
+                elseif($extension == 'png') {
+                    $image = imagecreatefrompng(public_path(). '/images/search/' . $picName);
+                }
+                //$width = imagesx($image);
+                //$height = imagesy($image);
+                $color = imagecolorat($image, 5, 5);
+                //$r = ($color >> 16) & 0xFF;
+                //$g = ($color >> 8) & 0xFF;
+                //$b = $color & 0xFF;
+                //var_dump($r, $g, $b);
+                //var_dump(imagecolorsforindex($image, $color));
+                //var_dump($color);
+
+                $detail = new BackDetails();
+                $allResult = $detail->getAllData();
+
+                $check = 0;
+                $getIDImage = null;
+                foreach ($allResult as $value) {
+                    $dataColor = imagecolorat(imagecreatefromjpeg(public_path(). '/' . $value->detail_image), 5, 5);
+                    if ($dataColor == $color){
+                        $check = 1;
+                        $getIDImage = $value->detail_id;
+                        break;
+                    }
+                }
+                unlink(public_path(). '/images/search/' . $picName);
+                if ($getIDImage != null) return $getIDImage;
             }
         /*=============================== UPLOAD PICTURES ===============================*/
             public function uploadPicture($img, $path){

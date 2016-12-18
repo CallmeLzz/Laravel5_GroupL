@@ -203,7 +203,7 @@
 						'uses' => 'Admin\AdminDetailController@deleteDetail'
 						]);
 				//================ Search ================//
-					Route::get('/admin/searchDetail', [
+					Route::post('/admin/searchDetail', [
 						'as' => 'searchDetail',
 						'uses' => 'Admin\AdminDetailController@searchDetail'
 						]);

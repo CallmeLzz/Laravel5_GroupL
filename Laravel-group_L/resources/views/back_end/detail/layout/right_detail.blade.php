@@ -1,5 +1,5 @@
 <div class="right-menu">
-    {!! Form::open(['route' => 'searchDetail', 'method' => 'GET']) !!}
+    {!! Form::open(['route' => 'searchDetail', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <label>Detail Search</label><br>
         {!! Form::text('q', null, array('placeholder' => 'Enter your key...')) !!}
         {!! Form::submit('GO') !!}<br>
@@ -17,6 +17,9 @@
                     ], null, array('style' => 'color: black;'))
                 !!}
             </td>
+        </tr>
+        <tr>
+            <td>{!! Form::file('fileToUpload', array('id' => 'fileupload')) !!}</td>
         </tr>
     {!! Form::close() !!}
 </div>

@@ -28,7 +28,7 @@ class BackDetails extends Model
         }
     }
     public function getDataCond($id){
-        return BackDetails::where('detail_id', $id)->get();
+        return BackDetails::where('detail_id', 'LIKE', $id)->get();
     }
     public function getDynamicData($type){
         return BackDetails::where('detail_type', $type)->get();
@@ -38,6 +38,9 @@ class BackDetails extends Model
                 'detail_full_description', 'detail_image', 'detail_type', 'price_rate')
                 ->join('prices', 'price_detail', '=', 'detail_title')
                 ->get();
+    }
+    public function getAllData(){
+        return BackDetails::all();
     }
     /*=============================== ADD ===============================*/
         public function addDetail($title, $b_description, $f_description, $img, $type){
