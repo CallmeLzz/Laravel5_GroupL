@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Models\Back\BackCategories;
 use App\Models\Back\BackMenus;
+use App\Models\Back\BackReservations;
+use Excel;
 
 class AdminCategoryController extends Controller
 {
@@ -20,6 +22,14 @@ class AdminCategoryController extends Controller
     	return view('back_end.category.page.index')->with([
             'cate'=> $result_cate,
             'i' => $i
+            ]);
+    }
+    public function indexReservation(Request $request){
+        $reservation = new BackReservations();
+        $result_reservation = $reservation->getData();
+
+        return view('back_end.category.page.index')->with([
+            'reservation'=> $result_reservation
             ]);
     }
     /*============================================ CATEGORY ============================================*/
@@ -133,6 +143,18 @@ class AdminCategoryController extends Controller
                 Excel::create('categories', function($excel) use($result_cate){
                     $excel->sheet('CategorySheet', function($sheet) use($result_cate){
                         $sheet->fromArray($result_cate);
+                    });
+                })->export('xls');
+            }
+    /*============================================ RESERVATION ============================================*/
+        /*=============================== EXPORT TO EXCEL ===============================*/
+            public function exportReservation(){
+                $reservation = new BackReservations();
+                $result_reservation = $reservation->exportReservation();
+
+                Excel::create('reservations', function($excel) use($result_reservation){
+                    $excel->sheet('ReservationSheet', function($sheet) use($result_reservation){
+                        $sheet->fromArray($result_reservation);
                     });
                 })->export('xls');
             }

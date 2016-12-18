@@ -26,4 +26,9 @@ class FrontDetail extends Model
                         ->join('prices', 'price_detail', '=', 'detail_title')
                         ->get();
 	}
+    public function getTypeReservation($type){
+        return FrontDetail::where('detail_type', 'LIKE', $type)
+                    ->pluck('detail_title', 'detail_title')
+                    ->toArray();
+    }
 }

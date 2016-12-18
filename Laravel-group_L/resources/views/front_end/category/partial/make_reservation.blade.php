@@ -40,10 +40,10 @@
 						<span class="red-symbol">*</span> are required
 					</small>
 				</h2>
-				{!! Form::open(['method' => 'POST', 'route' => 'reservation', 'enctype' => 'multipart/form-data', 'class' => 'booking-form']) !!}
+				{!! Form::open(['method' => 'GET', 'route' => 'reservation', 'enctype' => 'multipart/form-data', 'class' => 'booking-form']) !!}
 					<div class="col-md-6 col-xs-12">
 						<label for="name">First Name <span class="red-symbol">*</span></label>
-						{!! Form::text('name') !!}
+						{!! Form::text('name', null, array('autofocus')) !!}
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<label for="email">Email <span class="red-symbol">*</span></label>
@@ -58,17 +58,12 @@
 						{!! Form::date('departure_date') !!}
 					</div>
 					<div class="col-md-6 col-xs-12">
-						<label for="first_name">Room Type <span class="red-symbol">*</span></label>
-						{!! Form::select('type', [
-								'Round Cove Suite' => 'Round Cove Suite',
-								'Signature Water View' => 'Signature Water View',
-								'Signature Water Side' => 'Signature Water Side',
-								'Signature Junior Suite' => 'Signature Junior Suite'
-								], 'default', array('class' => 'cmb_booking')) 
+						<label for="type">Room Type <span class="red-symbol">*</span></label>
+						{!! Form::select('type', $typeReservation, 'default', array('class' => 'cmb_booking')) 
 						!!}
 					</div>
 					<div class="col-md-6 col-xs-12">
-						<label for="email">Adults <span class="red-symbol">*</span></label>
+						<label for="adult">Adults <span class="red-symbol">*</span></label>
 						{!! Form::select('adult', [
 								'1 Adult' => '1 Adult',
 								'2 Adults' => '2 Adults',

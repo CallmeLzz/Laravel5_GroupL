@@ -19,6 +19,7 @@
                     <ul>
                         <li><a href="{{ URL::route('adminCategory') }}"> Category </a></li>
                         <li><a href="{{ URL::route('adminDetailPrice') }}"> Price </a></li>
+                        <li><a href="{{ URL::route('adminReservation') }}"> Reservation </a></li>
                     </ul>
                 </li>
                 <li>

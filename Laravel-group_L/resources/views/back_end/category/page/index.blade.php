@@ -9,5 +9,10 @@
 	@section('right-menu')
 		@include('back_end.category.layout.right_category')
 	@stop
-@else
+@elseif(isset($reservation))
+	@section('title', 'Admin Category Reservation Page')
+
+	@section('main-content')
+	    @include('back_end.category.page.content_reservation')
+	@stop
 @endif

@@ -67,9 +67,15 @@
 					'uses' => 'Admin\AdminHomeController@indexBanner'
 					]);
 		//================ Category ================//
+			//============ Main ============//
 				Route::get('/admin/category', [
 						'as' => 'adminCategory',
 						'uses' => 'Admin\AdminCategoryController@indexCategory'
+						]);
+			//============ Reservation ============//
+				Route::get('/admin/categoryReservation', [
+						'as' => 'adminReservation',
+						'uses' => 'Admin\AdminCategoryController@indexReservation'
 						]);
 		//================ Detail ================//
 			//============ Main ============//
@@ -148,6 +154,7 @@
 					'uses' => 'Admin\AdminHomeController@exportBanner'
 					]);
 	//================================== Category ==================================//
+		//========================== Main ==========================//
 			//================ Add ================//
 				Route::get('/admin/addCategoryView', [
 					'as' => 'addCategoryView',
@@ -180,6 +187,12 @@
 				Route::get('/admin/exportCategory', [
 					'as' => 'exportCategory',
 					'uses' => 'Admin\AdminCategoryController@exportCategory'
+					]);
+		//========================== Reservation ==========================//
+			//================ Export to Excel ================//
+				Route::get('/admin/exportReservation', [
+					'as' => 'exportReservation',
+					'uses' => 'Admin\AdminCategoryController@exportReservation'
 					]);
 	//================================== Detail ==================================//
 		//========================== Main ==========================//
