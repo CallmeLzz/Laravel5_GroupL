@@ -108,7 +108,7 @@ class BackDetails extends Model
         }
     /*=============================== SEARCH ===============================*/
     public function searchDetail($type, $key){
-        $result = self::where('detail_'.$type, 'like', '%'.$key.'%')->get();
+        $result = self::where('detail_'.$type, 'like', '%'.$key.'%')->paginate(4);//->get();
         if (sizeof($result) == 0) return "Your detail NOT exists";
         else return $result;
     }

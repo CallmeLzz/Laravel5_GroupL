@@ -1,0 +1,122 @@
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*==============================================================================*/
+.book_form{
+  display: block;
+  width: 100%;
+}
+.box_booking{
+  .book_form;
+  padding: 5px;
+  border-radius: 2px;
+  border-color: rgba(102,114,121,0.25);
+}
+@booking-color: rgba(192,57,43,1);
+@booking-text-color: rgba(102, 114, 121, 1);
+.booking {
+  background-color: white;
+  padding: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 750px;
+  .close {
+    float: right;
+    opacity: 1;
+    font-size: 50px;
+    &:hover {
+      color: @booking-color;
+    }
+  }
+  h2 {
+    background-color: inherit;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 15px;
+    margin-right: 50px;
+    font-family: Domine;
+    small {
+      display: block;
+      opacity: 0.8;
+      line-height: 1.2;
+
+    }
+  }
+  .booking-form {
+    margin-top: 35px;
+    color: @booking-text-color;
+    .booking-required{
+      margin: 15px;
+    }
+    label {
+      .book_form;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input{
+      .box_booking;
+    }
+    .col-md-6{
+      margin-bottom: 15px;
+    }
+    .cmb_booking{
+      .box_booking;
+    }
+    .mes_booking{
+      .box_booking;
+      height: 120px;
+    }
+  }
+  .red-symbol {
+    color: #ff0000;
+  }
+  .under_form{
+    padding: 30px 25px;
+    .btn_submit{
+      border-radius: 5px;
+      border-color: @booking-color;
+      background-color: @booking-color;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 15px;
+    }
+    p{
+      text-align: right;
+      color: @booking-text-color;
+    }
+  }
+}

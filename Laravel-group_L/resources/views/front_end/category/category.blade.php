@@ -20,6 +20,7 @@
         /*======================== endMine ========================*/
         /*======================== ST ========================*/
             $less->compileFile('less/home/top-nav.less', 'css/home/top-nav.css');
+            $less->compileFile('less/category/booking.less', 'css/category/booking.css');
         /*======================== endST ========================*/
         /*======================== T ========================*/
             $less->compileFile('less/masterpage/type_45-footer.less', 'css/masterpage/type_45-footer.css');
@@ -44,6 +45,7 @@
     <!-- ======================== ST ======================== -->
         <link rel="stylesheet" type="text/css" href="{{asset('css/home/top-nav.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/home/type-34.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/category/booking.css')}}">
     <!-- ======================== endST ======================== -->
     <!-- ======================== T ======================== -->
         <link rel="stylesheet" type="text/css" href="{{asset('css/masterpage/type_45-footer.css')}}">
@@ -54,8 +56,11 @@
 @stop
 
 @section('script')
+    <!-- ======================== Mine ======================== -->
+        <script type="text/javascript" src="{{asset('js/front_end/reservation.js')}}"></script>
+    <!-- ======================== endMine ======================== -->
 	<!-- ======================== ST ======================== -->
-        <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{asset('js/script.js')}}"></script> -->
     <!-- ======================== endST ======================== -->
     <!-- ======================== T ======================== -->
         <!-- <script type="text/javascript" src="{{asset('js/jquery-2.2.4.min.js')}}"></script> -->

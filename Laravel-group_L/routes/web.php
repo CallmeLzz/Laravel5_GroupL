@@ -27,6 +27,10 @@
 		'as' => 'category',
 		'uses' => 'CategoryController@index'
 		]);
+	Route::get('/front/reservation', [
+		'as' => 'reservation',
+		'uses' => 'CategoryController@reservation'
+		]);
 //==================================================================================//
 //==================================================================================//
 //================================== Back-end ==================================//
@@ -36,13 +40,13 @@
 	*
 	*/
 	//================================== Admin ==================================//
+				Route::get('/admin', [
+					'as' => 'showLogin',
+					'uses' => 'Admin\AdminController@showLogin'
+					]);
 				Route::get('/admin/page', [
 					'as' => 'admin',
 					'uses' => 'Admin\AdminController@index'
-					]);
-				Route::get('/admin/showLogin', [
-					'as' => 'showLogin',
-					'uses' => 'Admin\AdminController@showLogin'
 					]);
 				Route::get('/admin/login', [
 					'as' => 'login',

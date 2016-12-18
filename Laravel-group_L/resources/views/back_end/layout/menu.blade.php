@@ -2,7 +2,7 @@
     <div class="container">
         <ul>
             <li>
-                <a href="#">Logo</a>
+                <a href="{{ URL::route('home') }}">Front</a>
             </li>
             <li class="active">
                 <a href="#">Dashboard</a>
@@ -12,9 +12,6 @@
             </li>
             <li>
                 <a href="#">File Manager</a>
-            </li>
-            <li>
-                <a href="{{ URL::route('showLogin') }}">Log In</a>
             </li>
         </ul>
     </div>

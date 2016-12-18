@@ -344,10 +344,18 @@ class AdminDetailController extends Controller
             }
         /*=============================== EDIT FEATURE ===============================*/
             public function editFeature(Request $request){
-                
                 $id = $request->input('id');
                 $feature = new BackFeatures();
-                $result_feature = $feature->getDataCond($id);
-                var_dump($result_feature->toArray());
+                $menu = new BackMenus();
+
+                if($request->input('feature_title') == null){
+                    $result_feature = $feature->getDataCond($id);
+                    $result_menu = $menu->getParent();
+                    
+                    return view('back_end.detail.edit.index')->with([
+                        'feature' => $result_feature,
+                        'menu_default' => $result_menu
+                        ]);
+                }
             }
 }
