@@ -22,7 +22,15 @@ class BackReservations extends Model
 	public function getData(){
 		return BackReservations::paginate(5);
 	}
-	public function exportReservation(){
-		return BackReservations::all();
+	public function getDataCond($id){
+		return BackReservations::where('reservation_id', 'LIKE', $id)->get();
 	}
+	/*=============================== Delete ===============================*/
+		public function deleteReservation($id){
+			BackReservations::where('reservation_id', 'LIKE', $id)->delete();
+		}
+	/*=============================== Export ===============================*/
+		public function exportReservation(){
+			return BackReservations::all();
+		}
 }

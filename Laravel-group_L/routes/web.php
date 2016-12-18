@@ -189,10 +189,20 @@
 					'uses' => 'Admin\AdminCategoryController@exportCategory'
 					]);
 		//========================== Reservation ==========================//
+			//================ Delete ================//
+				Route::get('/admin/deleteReservation', [
+					'as' => 'deleteReservation',
+					'uses' => 'Admin\AdminCategoryController@deleteReservation'
+					]);
 			//================ Export to Excel ================//
 				Route::get('/admin/exportReservation', [
 					'as' => 'exportReservation',
 					'uses' => 'Admin\AdminCategoryController@exportReservation'
+					]);
+			//================ Send Mail ================//
+				Route::get('/admin/sendMail', [
+					'as' => 'sendMail',
+					'uses' => 'Admin\SendMailController@sendMail'
 					]);
 	//================================== Detail ==================================//
 		//========================== Main ==========================//

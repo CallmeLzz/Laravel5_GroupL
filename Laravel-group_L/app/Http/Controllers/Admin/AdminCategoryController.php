@@ -147,6 +147,14 @@ class AdminCategoryController extends Controller
                 })->export('xls');
             }
     /*============================================ RESERVATION ============================================*/
+        /*=============================== DELETE ===============================*/
+            public function deleteReservation(Request $request){
+                $id = $request->input('id');
+                $reservation = new BackReservations();
+                $result_reservation = $reservation->deleteReservation($id);
+
+                return redirect()->route('adminReservation');
+            }
         /*=============================== EXPORT TO EXCEL ===============================*/
             public function exportReservation(){
                 $reservation = new BackReservations();
