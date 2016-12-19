@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2016 at 01:46 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Dec 19, 2016 at 03:38 AM
+-- Server version: 5.7.9
+-- PHP Version: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,11 +29,12 @@ USE `web2`;
 --
 
 DROP TABLE IF EXISTS `banners`;
-CREATE TABLE `banners` (
+CREATE TABLE IF NOT EXISTS `banners` (
   `banner_id` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `banner_title` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `banner_img` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `banner_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL
+  `banner_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`banner_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -53,12 +54,13 @@ INSERT INTO `banners` (`banner_id`, `banner_title`, `banner_img`, `banner_type`)
 --
 
 DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
+CREATE TABLE IF NOT EXISTS `categories` (
   `category_id` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `category_title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `category_description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `category_type` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `category_image` varchar(45) COLLATE utf8_unicode_ci NOT NULL
+  `category_image` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -77,13 +79,14 @@ INSERT INTO `categories` (`category_id`, `category_title`, `category_description
 --
 
 DROP TABLE IF EXISTS `details`;
-CREATE TABLE `details` (
+CREATE TABLE IF NOT EXISTS `details` (
   `detail_id` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `detail_title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `detail_brief_description` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `detail_full_description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `detail_image` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `detail_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL
+  `detail_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`detail_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -111,11 +114,12 @@ INSERT INTO `details` (`detail_id`, `detail_title`, `detail_brief_description`, 
 --
 
 DROP TABLE IF EXISTS `features`;
-CREATE TABLE `features` (
+CREATE TABLE IF NOT EXISTS `features` (
   `feature_id` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `feature_title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `feature_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `feature_content` varchar(100) CHARACTER SET utf8 NOT NULL
+  `feature_content` varchar(100) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`feature_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -138,11 +142,12 @@ INSERT INTO `features` (`feature_id`, `feature_title`, `feature_type`, `feature_
 --
 
 DROP TABLE IF EXISTS `menus`;
-CREATE TABLE `menus` (
+CREATE TABLE IF NOT EXISTS `menus` (
   `menu_id` varchar(10) NOT NULL,
   `menu_title` varchar(50) NOT NULL,
   `menu_level` int(2) NOT NULL,
-  `menu_parents` varchar(10) NOT NULL
+  `menu_parents` varchar(10) NOT NULL,
+  PRIMARY KEY (`menu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -162,11 +167,12 @@ INSERT INTO `menus` (`menu_id`, `menu_title`, `menu_level`, `menu_parents`) VALU
 --
 
 DROP TABLE IF EXISTS `prices`;
-CREATE TABLE `prices` (
+CREATE TABLE IF NOT EXISTS `prices` (
   `price_id` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `price_rate` int(3) NOT NULL,
   `price_type` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `price_detail` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `price_detail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`price_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -194,78 +200,25 @@ INSERT INTO `prices` (`price_id`, `price_rate`, `price_type`, `price_detail`) VA
 --
 
 DROP TABLE IF EXISTS `reservations`;
-CREATE TABLE `reservations` (
-  `reservation_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `reservations` (
+  `reservation_id` int(11) NOT NULL AUTO_INCREMENT,
   `reservation_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `reservation_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `reservation_arrival_date` date NOT NULL,
   `reservation_departure_date` date NOT NULL,
   `reservation_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `reservation_number_people` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `reservation_number_people` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`reservation_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `reservations`
 --
 
 INSERT INTO `reservations` (`reservation_id`, `reservation_name`, `reservation_email`, `reservation_arrival_date`, `reservation_departure_date`, `reservation_type`, `reservation_number_people`) VALUES
-(5, 'Grim', 'grimreaperld@gmail.com', '2016-12-25', '2016-12-30', 'Round Cove Suite', '4 Adults');
+(5, 'Grim', 'grimreaperld@gmail.com', '2016-12-25', '2016-12-30', 'Round Cove Suite', '4 Adults'),
+(6, '123', '10000714757654', '2016-12-12', '2016-12-12', 'Round Cove Suite', '1 Adult');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `banners`
---
-ALTER TABLE `banners`
-  ADD PRIMARY KEY (`banner_id`);
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`);
-
---
--- Indexes for table `details`
---
-ALTER TABLE `details`
-  ADD PRIMARY KEY (`detail_id`);
-
---
--- Indexes for table `features`
---
-ALTER TABLE `features`
-  ADD PRIMARY KEY (`feature_id`);
-
---
--- Indexes for table `menus`
---
-ALTER TABLE `menus`
-  ADD PRIMARY KEY (`menu_id`);
-
---
--- Indexes for table `prices`
---
-ALTER TABLE `prices`
-  ADD PRIMARY KEY (`price_id`);
-
---
--- Indexes for table `reservations`
---
-ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`reservation_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `reservations`
---
-ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
