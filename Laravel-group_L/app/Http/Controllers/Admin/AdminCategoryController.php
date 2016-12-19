@@ -9,7 +9,6 @@ use App\Models\Back\BackCategories;
 use App\Models\Back\BackMenus;
 use App\Models\Back\BackReservations;
 use Excel;
-use App\Http\Controllers\Admin\SendMailController;
 
 class AdminCategoryController extends Controller
 {

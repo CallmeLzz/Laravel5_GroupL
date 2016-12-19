@@ -23,7 +23,6 @@
         /*======================== ST ========================*/
         $less->compileFile('less/home/top-nav.less', 'css/home/top-nav.css');
         $less->compileFile('less/home/banner.less', 'css/home/banner.css');
-        $less->compileFile('less/home/booking.less', 'css/home/booking.css');
         $less->compileFile('less/home/type-34.less', 'css/home/type-34.css');
         /*======================== endST ========================*/
 
