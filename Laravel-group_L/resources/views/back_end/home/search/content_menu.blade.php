@@ -22,7 +22,7 @@
                         <td>{{ $value['menu_level'] }}</td>
                         <td>
                             <a href="{{ route('editMenu') }}?id={{ $value['menu_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
-                            <a href="{{ route('deleteMenu') }}?id={{ $value['menu_id'] }}" class="btn btn-danger pull left" style="margin-right:3px;">Delete</a>
+                            <a href="{{ route('deleteMenu') }}?id={{ $value['menu_id'] }}" class="btn btn-danger pull left submitDelete" style="margin-right:3px;" source="{{ route('deleteMenu') }}?id={{ $value['menu_id'] }}">Delete</a>
                         </td>
                     </tr>
                     @endforeach

@@ -20,7 +20,7 @@ class BackReservations extends Model
         'reservation_number_people'
 	];
 	public function getData(){
-		return BackReservations::paginate(5);
+		return BackReservations::paginate(10);
 	}
 	public function getDataCond($id){
 		return BackReservations::select('reservation_name', 'reservation_email', 'reservation_arrival_date', 

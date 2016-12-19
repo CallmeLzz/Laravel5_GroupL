@@ -28,7 +28,7 @@ class BackDetails extends Model
         }
     }
     public function getDataCond($id){
-        return BackDetails::where('detail_id', 'LIKE', $id)->get();
+        return BackDetails::where('detail_id', $id)->get();
     }
     public function getDynamicData($type){
         return BackDetails::where('detail_type', $type)->get();

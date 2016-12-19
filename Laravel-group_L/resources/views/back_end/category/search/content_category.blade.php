@@ -26,7 +26,7 @@
                         <td><img src="{{ asset($value['category_image']) }}"></td>
                         <td>
                             <a href="{{ route('editCategoryView') }}?id={{ $value['category_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
-                            <a href="{{ route('deleteCategory') }}?id={{ $value['category_id'] }}" class="btn btn-danger pull left" style="margin-right:3px;">Delete</a>
+                            <a href="{{ route('deleteCategory') }}?id={{ $value['category_id'] }}" class="btn btn-danger pull left submitDelete" style="margin-right:3px;" source="{{ route('deleteCategory') }}?id={{ $value['category_id'] }}">Delete</a>
                         </td>
                     </tr>
                     @endforeach

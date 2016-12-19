@@ -15,8 +15,8 @@
                 <th>Operations</th>
             </tr>
             @if(isset($searchDetail))
-                @if(is_string($searchDetail))
-                    <label><font color="red"><?php echo $searchDetail; ?></font></label>
+                @if(sizeof($searchDetail) == 0)
+                    <label><font color="red"> Your detail NOT exists !!</font></label>
                 @else
                     @foreach($searchDetail as $value)
                     <tr>

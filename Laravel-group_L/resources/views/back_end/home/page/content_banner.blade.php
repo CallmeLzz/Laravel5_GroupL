@@ -24,7 +24,7 @@
                 <td>
                     <a href="{{ route('editBannerView') }}?id={{ $value['banner_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
                     <form action="{{ route('deleteBanner') }}">
-                        <button class="btn btn-danger pull left" name="id" value="{{ $value['banner_id'] }}">Delete</button>
+                        <button class="btn btn-danger pull left submitDelete" name="id" value="{{ $value['banner_id'] }}" source="{{ route('deleteBanner') }}?id={{ $value['banner_id'] }}">Delete</button>
                     </form>
                 </td>
             </tr>

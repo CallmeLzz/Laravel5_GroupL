@@ -43,7 +43,6 @@
     <!-- ======================== ST ======================== -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/home/top-nav.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/home/banner.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/home/booking.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/home/type-34.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/owlcarousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/owlcarousel/owl.theme.default.min.css')}}">

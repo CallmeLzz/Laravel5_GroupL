@@ -24,7 +24,7 @@
                         <td>{{ $value['banner_type'] }}</td>
                         <td>
                             <a href="{{ route('editBannerView') }}?id={{ $value['banner_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Edit</a>
-                            <a href="{{ route('deleteBanner') }}?id={{ $value['banner_id'] }}" class="btn btn-danger pull left" style="margin-right:3px;">Delete</a>
+                            <a href="{{ route('deleteBanner') }}?id={{ $value['banner_id'] }}" class="btn btn-danger pull left submitDelete" style="margin-right:3px;" source="{{ route('deleteBanner') }}?id={{ $value['banner_id'] }}">Delete</a>
                         </td>
                     </tr>
                     @endforeach

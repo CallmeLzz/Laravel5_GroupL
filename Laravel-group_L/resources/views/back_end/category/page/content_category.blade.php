@@ -39,7 +39,7 @@
                 <tr>
                     <td>{{ $value['category_id'] }}</td>
                     <td>{{ $value['category_title'] }}</td>
-                    <td>{{ substr($value['category_description'], 0, 80) }}...</td>
+                    <td>{{ substr($value['category_description'], 0, 100) }}...</td>
                     <td>{{ $value['category_type'] }}</td>
                     <td><img class="img_zoom" src="{{ asset($value['category_image']) }}"></td>
                     <td>

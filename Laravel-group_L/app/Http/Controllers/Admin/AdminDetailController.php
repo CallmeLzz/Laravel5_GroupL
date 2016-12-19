@@ -118,9 +118,12 @@ class AdminDetailController extends Controller
                 $type = $request->input('type');
                 $detail = new BackDetails();
 
+                $searchResult = null;
                 $img = Input::file('fileToUpload');
                 if($img != null){
                     $searchResult = $detail->getDataCond($this->searchByImage('fileToUpload', $img));
+                    /*var_dump($searchResult->toArray());
+                    die();*/
                     if ($searchResult == null) $searchResult = "Your detail NOT exists";
                 }
                 else {
@@ -163,7 +166,10 @@ class AdminDetailController extends Controller
                     }
                 }
                 unlink(public_path(). '/images/search/' . $picName);
-                if ($getIDImage != null) return $getIDImage;
+                /*var_dump($getIDImage);
+                die();
+                if ($getIDImage != null) return $getIDImage;*/
+                return $getIDImage;
             }
         /*=============================== UPLOAD PICTURES ===============================*/
             public function uploadPicture($img, $path){
