@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2016 at 04:48 PM
+-- Generation Time: Dec 19, 2016 at 01:46 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -195,15 +195,21 @@ INSERT INTO `prices` (`price_id`, `price_rate`, `price_type`, `price_detail`) VA
 
 DROP TABLE IF EXISTS `reservations`;
 CREATE TABLE `reservations` (
-  `reservation_id` varchar(10) NOT NULL,
-  `reservation_name` varchar(50) NOT NULL,
-  `reservation_email` varchar(50) NOT NULL,
+  `reservation_id` int(11) NOT NULL,
+  `reservation_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `reservation_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `reservation_arrival_date` date NOT NULL,
   `reservation_departure_date` date NOT NULL,
-  `reservation_room_type` varchar(50) NOT NULL,
-  `reservation_number_people` int(10) NOT NULL,
-  `reservation_message` text NOT NULL
+  `reservation_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `reservation_number_people` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`reservation_id`, `reservation_name`, `reservation_email`, `reservation_arrival_date`, `reservation_departure_date`, `reservation_type`, `reservation_number_people`) VALUES
+(5, 'Grim', 'grimreaperld@gmail.com', '2016-12-25', '2016-12-30', 'Round Cove Suite', '4 Adults');
 
 --
 -- Indexes for dumped tables
@@ -251,6 +257,15 @@ ALTER TABLE `prices`
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `reservations`
+--
+ALTER TABLE `reservations`
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
