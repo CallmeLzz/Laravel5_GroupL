@@ -44,9 +44,9 @@ class SendMailController extends Controller
     		];
     	Mail::send(['text' => 'mail'], $data, function($message) use ($data){
     		$message->to($data['reservation_email'], $data['reservation_name'])
-    			->subject('Send mail from '.$data['author'].'.');
+    			->subject('Mail sent from '.$data['author'].'.');
 			$message->attach(public_path() . '/' . $data['detail_image']);
-    		$message->from('nguyenanhhoanld.thienhaxaxoi@gmail.com');
+    		$message->from('leisureresort@gmail.com');
     	});
 
     	return redirect()->route('adminReservation');
