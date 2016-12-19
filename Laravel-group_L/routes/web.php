@@ -204,6 +204,11 @@
 					'as' => 'sendMail',
 					'uses' => 'Admin\SendMailController@sendMail'
 					]);
+			//================ Cancel Mail ================//
+				Route::get('/admin/cancelMail', [
+					'as' => 'cancelMail',
+					'uses' => 'Admin\SendMailController@cancelReservation'
+					]);
 	//================================== Detail ==================================//
 		//========================== Main ==========================//
 				//================ Add ================//

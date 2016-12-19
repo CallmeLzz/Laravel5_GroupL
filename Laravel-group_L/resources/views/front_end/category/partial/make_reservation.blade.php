@@ -73,7 +73,7 @@
 						!!}
 					</div>
 					<div class="col-md-6 col-xs-12 under_form">
-						{!! Form::submit('Make Reservation', array('class' => 'btn_submit')) !!}
+						{!! Form::submit('Make Reservation', array('class' => 'btn_submit', 'id' => 'Make Reservation')) !!}
 					</div>
 					<div class="col-md-6 col-xs-12 under_form">
 						<p>Price / Room / Night: 100.00</p>

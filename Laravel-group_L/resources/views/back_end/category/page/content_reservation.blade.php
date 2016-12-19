@@ -44,7 +44,7 @@
                     <td>{{ $value['reservation_number_people'] }}</td>
                     <td>
                         <a href="{{ route('sendMail') }}?id={{ $value['reservation_id'] }}" class="btn btn-info pull left" style="margin-right:3px;">Send Mail</a>
-                        <button class="btn btn-danger pull left submitDelete" source="{{ route('deleteReservation') }}?id={{ $value['reservation_id'] }}">Delete</button>
+                        <button class="btn btn-danger pull left submitDelete" source="{{ route('cancelMail') }}?id={{ $value['reservation_id'] }}">Delete</button>
                     </td>
                 </tr>
             @endforeach
